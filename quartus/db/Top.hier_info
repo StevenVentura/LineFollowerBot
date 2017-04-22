@@ -1,0 +1,167 @@
+|Top
+clk => clk.IN4
+PWM_OutR <= LineFollow:lf1.port5
+dirR <= LineFollow:lf1.port6
+PWM_OutL <= LineFollow:lf1.port4
+dirL <= LineFollow:lf1.port7
+sensorLeftRaw => sensorLeftRaw.IN1
+sensorMiddleRaw => sensorMiddleRaw.IN1
+sensorRightRaw => sensorRightRaw.IN1
+
+
+|Top|LightSensorFilter:lsf1
+clk => latestPolarity.CLK
+clk => sensorFiltered~reg0.CLK
+clk => repeatCount[0].CLK
+clk => repeatCount[1].CLK
+clk => repeatCount[2].CLK
+clk => repeatCount[3].CLK
+clk => repeatCount[4].CLK
+clk => repeatCount[5].CLK
+clk => repeatCount[6].CLK
+clk => repeatCount[7].CLK
+clk => repeatCount[8].CLK
+clk => repeatCount[9].CLK
+clk => repeatCount[10].CLK
+clk => repeatCount[11].CLK
+clk => repeatCount[12].CLK
+clk => repeatCount[13].CLK
+clk => repeatCount[14].CLK
+clk => repeatCount[15].CLK
+clk => repeatCount[16].CLK
+sensorRaw => always0.IN1
+sensorRaw => sensorFiltered.DATAB
+sensorRaw => latestPolarity.DATAIN
+sensorFiltered <= sensorFiltered~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Top|LightSensorFilter:lsf2
+clk => latestPolarity.CLK
+clk => sensorFiltered~reg0.CLK
+clk => repeatCount[0].CLK
+clk => repeatCount[1].CLK
+clk => repeatCount[2].CLK
+clk => repeatCount[3].CLK
+clk => repeatCount[4].CLK
+clk => repeatCount[5].CLK
+clk => repeatCount[6].CLK
+clk => repeatCount[7].CLK
+clk => repeatCount[8].CLK
+clk => repeatCount[9].CLK
+clk => repeatCount[10].CLK
+clk => repeatCount[11].CLK
+clk => repeatCount[12].CLK
+clk => repeatCount[13].CLK
+clk => repeatCount[14].CLK
+clk => repeatCount[15].CLK
+clk => repeatCount[16].CLK
+sensorRaw => always0.IN1
+sensorRaw => sensorFiltered.DATAB
+sensorRaw => latestPolarity.DATAIN
+sensorFiltered <= sensorFiltered~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Top|LightSensorFilter:lsf3
+clk => latestPolarity.CLK
+clk => sensorFiltered~reg0.CLK
+clk => repeatCount[0].CLK
+clk => repeatCount[1].CLK
+clk => repeatCount[2].CLK
+clk => repeatCount[3].CLK
+clk => repeatCount[4].CLK
+clk => repeatCount[5].CLK
+clk => repeatCount[6].CLK
+clk => repeatCount[7].CLK
+clk => repeatCount[8].CLK
+clk => repeatCount[9].CLK
+clk => repeatCount[10].CLK
+clk => repeatCount[11].CLK
+clk => repeatCount[12].CLK
+clk => repeatCount[13].CLK
+clk => repeatCount[14].CLK
+clk => repeatCount[15].CLK
+clk => repeatCount[16].CLK
+sensorRaw => always0.IN1
+sensorRaw => sensorFiltered.DATAB
+sensorRaw => latestPolarity.DATAIN
+sensorFiltered <= sensorFiltered~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Top|LineFollow:lf1
+clk => PWM:pwmleft.clk
+clk => PWM:pwmright.clk
+clk => leftMotorSpeed[0].CLK
+clk => rightMotorSpeed[0].CLK
+clk => dirR~reg0.CLK
+clk => dirL~reg0.CLK
+sensorLeftFiltered => Decoder0.IN0
+sensorRightFiltered => Decoder0.IN2
+sensorMiddleFiltered => Decoder0.IN1
+PWM_OutL <= <GND>
+PWM_OutR <= <GND>
+dirR <= dirR~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dirL <= dirL~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Top|LineFollow:lf1|PWM:pwmleft
+clk => PWM_Out~reg0.CLK
+clk => counter[0].CLK
+clk => counter[1].CLK
+clk => counter[2].CLK
+clk => counter[3].CLK
+clk => counter[4].CLK
+clk => counter[5].CLK
+clk => counter[6].CLK
+clk => counter[7].CLK
+rst => counter.OUTPUTSELECT
+rst => counter.OUTPUTSELECT
+rst => counter.OUTPUTSELECT
+rst => counter.OUTPUTSELECT
+rst => counter.OUTPUTSELECT
+rst => counter.OUTPUTSELECT
+rst => counter.OUTPUTSELECT
+rst => counter.OUTPUTSELECT
+rst => PWM_Out~reg0.ENA
+enable => counter.OUTPUTSELECT
+enable => counter.OUTPUTSELECT
+enable => counter.OUTPUTSELECT
+enable => counter.OUTPUTSELECT
+enable => counter.OUTPUTSELECT
+enable => counter.OUTPUTSELECT
+enable => counter.OUTPUTSELECT
+enable => counter.OUTPUTSELECT
+enable => PWM_Out.OUTPUTSELECT
+PWM_Out <= PWM_Out~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Top|LineFollow:lf1|PWM:pwmright
+clk => PWM_Out~reg0.CLK
+clk => counter[0].CLK
+clk => counter[1].CLK
+clk => counter[2].CLK
+clk => counter[3].CLK
+clk => counter[4].CLK
+clk => counter[5].CLK
+clk => counter[6].CLK
+clk => counter[7].CLK
+rst => counter.OUTPUTSELECT
+rst => counter.OUTPUTSELECT
+rst => counter.OUTPUTSELECT
+rst => counter.OUTPUTSELECT
+rst => counter.OUTPUTSELECT
+rst => counter.OUTPUTSELECT
+rst => counter.OUTPUTSELECT
+rst => counter.OUTPUTSELECT
+rst => PWM_Out~reg0.ENA
+enable => counter.OUTPUTSELECT
+enable => counter.OUTPUTSELECT
+enable => counter.OUTPUTSELECT
+enable => counter.OUTPUTSELECT
+enable => counter.OUTPUTSELECT
+enable => counter.OUTPUTSELECT
+enable => counter.OUTPUTSELECT
+enable => counter.OUTPUTSELECT
+enable => PWM_Out.OUTPUTSELECT
+PWM_Out <= PWM_Out~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

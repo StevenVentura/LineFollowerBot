@@ -1,0 +1,139 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/Alamin/Documents/ADD/Lab2Part1_Ahmed_A/sim/Sourse
+vdelay
+Z0 !s110 1491379664
+!i10b 1
+!s100 3Z^;9GWIeYk>?_YFK4YL53
+IoB@^:_T7bFdz0]Vlm5:Jk2
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dC:/Users/Alamin/Documents/ComputerArchitecture/LineFollowRobot
+w1491379651
+8C:/Users/Alamin/Documents/ComputerArchitecture/LineFollowRobot/delay.v
+FC:/Users/Alamin/Documents/ComputerArchitecture/LineFollowRobot/delay.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1491379664.000000
+!s107 C:/Users/Alamin/Documents/ComputerArchitecture/LineFollowRobot/delay.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Alamin/Documents/ComputerArchitecture/LineFollowRobot/delay.v|
+!i113 1
+Z5 o-work work
+Z6 tCvgOpt 0
+vLineFollow
+R0
+!i10b 1
+!s100 d:NaUS5nik=N>oVMff;9F0
+I2?lgOV=QcmLZD2B0;Qm?T0
+R1
+R2
+w1491379661
+8C:/Users/Alamin/Documents/ComputerArchitecture/LineFollowRobot/LineFollow.v
+FC:/Users/Alamin/Documents/ComputerArchitecture/LineFollowRobot/LineFollow.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/Alamin/Documents/ComputerArchitecture/LineFollowRobot/LineFollow.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Alamin/Documents/ComputerArchitecture/LineFollowRobot/LineFollow.v|
+!i113 1
+R5
+R6
+n@line@follow
+vmotor
+R0
+!i10b 1
+!s100 IIDNcBA]2m[91XA4SQR802
+IU09kY2c0Wl^<ab8989LAe1
+R1
+R2
+w1490531834
+8C:/Users/Alamin/Documents/ComputerArchitecture/LineFollowRobot/motor.v
+FC:/Users/Alamin/Documents/ComputerArchitecture/LineFollowRobot/motor.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/Alamin/Documents/ComputerArchitecture/LineFollowRobot/motor.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Alamin/Documents/ComputerArchitecture/LineFollowRobot/motor.v|
+!i113 1
+R5
+R6
+vPWM
+R0
+!i10b 1
+!s100 JRHF01Ng1LoYmn8_:27fS1
+Ii?G:>OK6hS=UW21nO53D60
+R1
+R2
+w1490523100
+8C:/Users/Alamin/Documents/ComputerArchitecture/LineFollowRobot/PWM.v
+FC:/Users/Alamin/Documents/ComputerArchitecture/LineFollowRobot/PWM.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/Alamin/Documents/ComputerArchitecture/LineFollowRobot/PWM.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Alamin/Documents/ComputerArchitecture/LineFollowRobot/PWM.v|
+!i113 1
+R5
+R6
+n@p@w@m
+vtest
+!s110 1489222711
+!i10b 1
+!s100 X:C7`g7]U9izL[1F>TehM3
+IVbzY:KaNjL]N2KmMgTa__1
+R1
+R2
+w1489222704
+8C:/Users/Alamin/Documents/ComputerArchitecture/LineFollowRobot/test.v
+FC:/Users/Alamin/Documents/ComputerArchitecture/LineFollowRobot/test.v
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1489222711.000000
+!s107 C:/Users/Alamin/Documents/ComputerArchitecture/LineFollowRobot/test.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Alamin/Documents/ComputerArchitecture/LineFollowRobot/test.v|
+!i113 1
+R5
+R6
+vTop
+R0
+!i10b 1
+!s100 QRbS>XJ1U<OmkIM318>d^3
+I229DdYehLg]d6TFZCQ]9W1
+R1
+R2
+w1490532220
+8C:\Users\Alamin\Documents\ComputerArchitecture\LineFollowRobot\Top.v
+FC:\Users\Alamin\Documents\ComputerArchitecture\LineFollowRobot\Top.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:\Users\Alamin\Documents\ComputerArchitecture\LineFollowRobot\Top.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:\Users\Alamin\Documents\ComputerArchitecture\LineFollowRobot\Top.v|
+!i113 1
+R5
+R6
+n@top

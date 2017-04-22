@@ -22,13 +22,7 @@ module Top(clk,PWM_OutR, dirR,PWM_OutL, dirL,sensorLeftRaw, sensorMiddleRaw, sen
 	
 	LineFollow lf1 (clk, 
 			sensorLeftFiltered,sensorRightFiltered,sensorMiddleFiltered,
-			
+			PWM_OutL, PWM_OutR, dirR, dirL
 			);
 	
-	
-	/*
-	this makes it go forward 3 seconds, backward 3 seconds, repeat.
-	motor right(clk,PWM_OutR);
-	motor left(clk,PWM_OutL);
-	delay myDelay(clk,rst,3,dirL,dirR);*/
 endmodule
