@@ -1,9 +1,9 @@
-Analysis & Synthesis Status : Successful - Sat Apr 22 17:58:34 2017
+Analysis & Synthesis Status : Successful - Sat Apr 22 18:23:59 2017
 Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 Revision Name : Top
 Top-level Entity Name : Top
 Family : MAX II
-Total logic elements : 0
+Total logic elements : 101
 Total pins : 8
 Total virtual pins : 0
 UFM blocks : 0 / 1 ( 0 % )

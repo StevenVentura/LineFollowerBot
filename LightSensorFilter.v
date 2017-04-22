@@ -6,7 +6,7 @@ input clk;
 input sensorRaw;
 output reg sensorFiltered = 0;
 
-parameter [16:0] arbitraryRepeats = 16'd25000;
+parameter [16:0] arbitraryRepeats = 16'd5;
 
 reg[16:0] repeatCount=0;
 reg latestPolarity=0;

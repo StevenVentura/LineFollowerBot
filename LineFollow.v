@@ -6,7 +6,8 @@ module LineFollow (clk,
 			
 input sensorLeftFiltered,sensorMiddleFiltered,sensorRightFiltered;
 input clk;
-output reg PWM_OutL=0,PWM_OutR=0,dirR=1,dirL=1;
+output PWM_OutL,PWM_OutR;
+output reg dirR=1,dirL=1;
 
 reg [7:0] leftMotorSpeed, rightMotorSpeed;
 

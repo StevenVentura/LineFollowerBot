@@ -1,9 +1,9 @@
 |Top
 clk => clk.IN4
-PWM_OutR <= LineFollow:lf1.port5
-dirR <= LineFollow:lf1.port6
-PWM_OutL <= LineFollow:lf1.port4
-dirL <= LineFollow:lf1.port7
+PWM_OutR << LineFollow:lf1.port5
+dirR << LineFollow:lf1.port6
+PWM_OutL << LineFollow:lf1.port4
+dirL << LineFollow:lf1.port7
 sensorLeftRaw => sensorLeftRaw.IN1
 sensorMiddleRaw => sensorMiddleRaw.IN1
 sensorRightRaw => sensorRightRaw.IN1
@@ -88,17 +88,12 @@ sensorFiltered <= sensorFiltered~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |Top|LineFollow:lf1
-clk => PWM:pwmleft.clk
-clk => PWM:pwmright.clk
-clk => leftMotorSpeed[0].CLK
-clk => rightMotorSpeed[0].CLK
-clk => dirR~reg0.CLK
-clk => dirL~reg0.CLK
+clk => clk.IN2
 sensorLeftFiltered => Decoder0.IN0
 sensorRightFiltered => Decoder0.IN2
 sensorMiddleFiltered => Decoder0.IN1
-PWM_OutL <= <GND>
-PWM_OutR <= <GND>
+PWM_OutL <= PWM:pwmleft.port2
+PWM_OutR <= PWM:pwmright.port2
 dirR <= dirR~reg0.DB_MAX_OUTPUT_PORT_TYPE
 dirL <= dirL~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
@@ -113,15 +108,6 @@ clk => counter[4].CLK
 clk => counter[5].CLK
 clk => counter[6].CLK
 clk => counter[7].CLK
-rst => counter.OUTPUTSELECT
-rst => counter.OUTPUTSELECT
-rst => counter.OUTPUTSELECT
-rst => counter.OUTPUTSELECT
-rst => counter.OUTPUTSELECT
-rst => counter.OUTPUTSELECT
-rst => counter.OUTPUTSELECT
-rst => counter.OUTPUTSELECT
-rst => PWM_Out~reg0.ENA
 enable => counter.OUTPUTSELECT
 enable => counter.OUTPUTSELECT
 enable => counter.OUTPUTSELECT
@@ -130,7 +116,7 @@ enable => counter.OUTPUTSELECT
 enable => counter.OUTPUTSELECT
 enable => counter.OUTPUTSELECT
 enable => counter.OUTPUTSELECT
-enable => PWM_Out.OUTPUTSELECT
+enable => PWM_Out~reg0.ENA
 PWM_Out <= PWM_Out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
@@ -144,15 +130,6 @@ clk => counter[4].CLK
 clk => counter[5].CLK
 clk => counter[6].CLK
 clk => counter[7].CLK
-rst => counter.OUTPUTSELECT
-rst => counter.OUTPUTSELECT
-rst => counter.OUTPUTSELECT
-rst => counter.OUTPUTSELECT
-rst => counter.OUTPUTSELECT
-rst => counter.OUTPUTSELECT
-rst => counter.OUTPUTSELECT
-rst => counter.OUTPUTSELECT
-rst => PWM_Out~reg0.ENA
 enable => counter.OUTPUTSELECT
 enable => counter.OUTPUTSELECT
 enable => counter.OUTPUTSELECT
@@ -161,7 +138,7 @@ enable => counter.OUTPUTSELECT
 enable => counter.OUTPUTSELECT
 enable => counter.OUTPUTSELECT
 enable => counter.OUTPUTSELECT
-enable => PWM_Out.OUTPUTSELECT
+enable => PWM_Out~reg0.ENA
 PWM_Out <= PWM_Out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 

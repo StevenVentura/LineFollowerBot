@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Top
-Sat Apr 22 17:58:34 2017
+Sat Apr 22 18:23:59 2017
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -15,15 +15,17 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Registers Removed During Synthesis
   9. General Register Statistics
- 10. Parameter Settings for User Entity Instance: LightSensorFilter:lsf1
- 11. Parameter Settings for User Entity Instance: LightSensorFilter:lsf2
- 12. Parameter Settings for User Entity Instance: LightSensorFilter:lsf3
- 13. Parameter Settings for User Entity Instance: LineFollow:lf1
- 14. Parameter Settings for User Entity Instance: LineFollow:lf1|PWM:pwmleft
- 15. Parameter Settings for User Entity Instance: LineFollow:lf1|PWM:pwmright
- 16. Port Connectivity Checks: "LineFollow:lf1|PWM:pwmright"
- 17. Port Connectivity Checks: "LineFollow:lf1|PWM:pwmleft"
- 18. Analysis & Synthesis Messages
+ 10. Inverted Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: LightSensorFilter:lsf1
+ 13. Parameter Settings for User Entity Instance: LightSensorFilter:lsf2
+ 14. Parameter Settings for User Entity Instance: LightSensorFilter:lsf3
+ 15. Parameter Settings for User Entity Instance: LineFollow:lf1
+ 16. Parameter Settings for User Entity Instance: LineFollow:lf1|PWM:pwmleft
+ 17. Parameter Settings for User Entity Instance: LineFollow:lf1|PWM:pwmright
+ 18. Port Connectivity Checks: "LineFollow:lf1|PWM:pwmright"
+ 19. Port Connectivity Checks: "LineFollow:lf1|PWM:pwmleft"
+ 20. Analysis & Synthesis Messages
 
 
 
@@ -50,12 +52,12 @@ agreement for further details.
 +---------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                              ;
 +-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Sat Apr 22 17:58:34 2017       ;
+; Analysis & Synthesis Status ; Successful - Sat Apr 22 18:23:59 2017       ;
 ; Quartus Prime Version       ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name               ; Top                                         ;
 ; Top-level Entity Name       ; Top                                         ;
 ; Family                      ; MAX II                                      ;
-; Total logic elements        ; 0                                           ;
+; Total logic elements        ; 101                                         ;
 ; Total pins                  ; 8                                           ;
 ; Total virtual pins          ; 0                                           ;
 ; UFM blocks                  ; 0 / 1 ( 0 % )                               ;
@@ -166,38 +168,49 @@ agreement for further details.
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Total logic elements                        ; 0     ;
-;     -- Combinational with no register       ; 0     ;
-;     -- Register only                        ; 0     ;
-;     -- Combinational with a register        ; 0     ;
+; Total logic elements                        ; 101   ;
+;     -- Combinational with no register       ; 24    ;
+;     -- Register only                        ; 3     ;
+;     -- Combinational with a register        ; 74    ;
 ;                                             ;       ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 0     ;
-;     -- 3 input functions                    ; 0     ;
-;     -- 2 input functions                    ; 0     ;
-;     -- 1 input functions                    ; 0     ;
+;     -- 4 input functions                    ; 24    ;
+;     -- 3 input functions                    ; 7     ;
+;     -- 2 input functions                    ; 62    ;
+;     -- 1 input functions                    ; 5     ;
 ;     -- 0 input functions                    ; 0     ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 0     ;
-;     -- arithmetic mode                      ; 0     ;
+;     -- normal mode                          ; 39    ;
+;     -- arithmetic mode                      ; 62    ;
 ;     -- qfbk mode                            ; 0     ;
 ;     -- register cascade mode                ; 0     ;
-;     -- synchronous clear/load mode          ; 0     ;
+;     -- synchronous clear/load mode          ; 67    ;
 ;     -- asynchronous clear/load mode         ; 0     ;
 ;                                             ;       ;
-; Total registers                             ; 0     ;
+; Total registers                             ; 77    ;
+; Total logic cells in carry chains           ; 67    ;
 ; I/O pins                                    ; 8     ;
+; Maximum fan-out node                        ; clk   ;
+; Maximum fan-out                             ; 77    ;
+; Total fan-out                               ; 395   ;
+; Average fan-out                             ; 3.62  ;
 +---------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                ;
-+----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+-------------+--------------+
-; |Top                       ; 0 (0)       ; 0            ; 0          ; 8    ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Top                ; Top         ; work         ;
-+----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+---------------------+-------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                    ;
++-----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------------------+-------------------+--------------+
+; Compilation Hierarchy Node  ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name              ; Entity Name       ; Library Name ;
++-----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------------------+-------------------+--------------+
+; |Top                        ; 101 (0)     ; 77           ; 0          ; 8    ; 0            ; 24 (0)       ; 3 (0)             ; 74 (0)           ; 67 (0)          ; 0 (0)      ; |Top                             ; Top               ; work         ;
+;    |LightSensorFilter:lsf1| ; 25 (25)     ; 19           ; 0          ; 0    ; 0            ; 6 (6)        ; 1 (1)             ; 18 (18)          ; 17 (17)         ; 0 (0)      ; |Top|LightSensorFilter:lsf1      ; LightSensorFilter ; work         ;
+;    |LightSensorFilter:lsf2| ; 25 (25)     ; 19           ; 0          ; 0    ; 0            ; 6 (6)        ; 1 (1)             ; 18 (18)          ; 17 (17)         ; 0 (0)      ; |Top|LightSensorFilter:lsf2      ; LightSensorFilter ; work         ;
+;    |LightSensorFilter:lsf3| ; 25 (25)     ; 19           ; 0          ; 0    ; 0            ; 6 (6)        ; 1 (1)             ; 18 (18)          ; 17 (17)         ; 0 (0)      ; |Top|LightSensorFilter:lsf3      ; LightSensorFilter ; work         ;
+;    |LineFollow:lf1|         ; 26 (2)      ; 20           ; 0          ; 0    ; 0            ; 6 (0)        ; 0 (0)             ; 20 (2)           ; 16 (0)          ; 0 (0)      ; |Top|LineFollow:lf1              ; LineFollow        ; work         ;
+;       |PWM:pwmleft|         ; 12 (12)     ; 9            ; 0          ; 0    ; 0            ; 3 (3)        ; 0 (0)             ; 9 (9)            ; 8 (8)           ; 0 (0)      ; |Top|LineFollow:lf1|PWM:pwmleft  ; PWM               ; work         ;
+;       |PWM:pwmright|        ; 12 (12)     ; 9            ; 0          ; 0    ; 0            ; 3 (3)        ; 0 (0)             ; 9 (9)            ; 8 (8)           ; 0 (0)      ; |Top|LineFollow:lf1|PWM:pwmright ; PWM               ; work         ;
++-----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------------------+-------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -206,8 +219,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------------+----------------------------------------+
 ; Register name                         ; Reason for Removal                     ;
 +---------------------------------------+----------------------------------------+
-; LineFollow:lf1|dirL                   ; Stuck at VCC due to stuck port data_in ;
 ; LineFollow:lf1|dirR                   ; Stuck at VCC due to stuck port data_in ;
+; LineFollow:lf1|dirL                   ; Stuck at VCC due to stuck port data_in ;
 ; Total Number of Removed Registers = 2 ;                                        ;
 +---------------------------------------+----------------------------------------+
 
@@ -217,8 +230,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
-; Number of registers using Synchronous Clear  ; 0     ;
+; Total registers                              ; 77    ;
+; Number of registers using Synchronous Clear  ; 67    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
@@ -227,12 +240,34 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; LineFollow:lf1|PWM:pwmright|PWM_Out    ; 2       ;
+; LineFollow:lf1|PWM:pwmleft|PWM_Out     ; 2       ;
+; Total number of inverted registers = 2 ;         ;
++----------------------------------------+---------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |Top|LightSensorFilter:lsf1|repeatCount[16] ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |Top|LightSensorFilter:lsf2|repeatCount[16] ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |Top|LightSensorFilter:lsf3|repeatCount[16] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+
+
 +---------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: LightSensorFilter:lsf1 ;
 +------------------+-------------------+------------------------------+
 ; Parameter Name   ; Value             ; Type                         ;
 +------------------+-------------------+------------------------------+
-; arbitraryRepeats ; 00010010110100000 ; Unsigned Binary              ;
+; arbitraryRepeats ; 00000000000000101 ; Unsigned Binary              ;
 +------------------+-------------------+------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -242,7 +277,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------+-------------------+------------------------------+
 ; Parameter Name   ; Value             ; Type                         ;
 +------------------+-------------------+------------------------------+
-; arbitraryRepeats ; 00010010110100000 ; Unsigned Binary              ;
+; arbitraryRepeats ; 00000000000000101 ; Unsigned Binary              ;
 +------------------+-------------------+------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -252,7 +287,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------+-------------------+------------------------------+
 ; Parameter Name   ; Value             ; Type                         ;
 +------------------+-------------------+------------------------------+
-; arbitraryRepeats ; 00010010110100000 ; Unsigned Binary              ;
+; arbitraryRepeats ; 00000000000000101 ; Unsigned Binary              ;
 +------------------+-------------------+------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -297,24 +332,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "LineFollow:lf1|PWM:pwmright"                                                                                ;
-+---------+--------+----------+----------------------------------------------------------------------------------------------------------+
-; Port    ; Type   ; Severity ; Details                                                                                                  ;
-+---------+--------+----------+----------------------------------------------------------------------------------------------------------+
-; enable  ; Input  ; Info     ; Stuck at GND                                                                                             ;
-; PWM_Out ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
-+---------+--------+----------+----------------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "LineFollow:lf1|PWM:pwmright"                                                                                                                                                      ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                                                          ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; enable ; Input ; Warning  ; Input port expression (8 bits) is wider than the input port (1 bits) it drives.  The 7 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "LineFollow:lf1|PWM:pwmleft"                                                                                 ;
-+---------+--------+----------+----------------------------------------------------------------------------------------------------------+
-; Port    ; Type   ; Severity ; Details                                                                                                  ;
-+---------+--------+----------+----------------------------------------------------------------------------------------------------------+
-; enable  ; Input  ; Info     ; Stuck at GND                                                                                             ;
-; PWM_Out ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
-+---------+--------+----------+----------------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "LineFollow:lf1|PWM:pwmleft"                                                                                                                                                       ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                                                          ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; enable ; Input ; Warning  ; Input port expression (8 bits) is wider than the input port (1 bits) it drives.  The 7 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-------------------------------+
@@ -323,11 +356,10 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Sat Apr 22 17:58:20 2017
+    Info: Processing started: Sat Apr 22 18:23:47 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Top -c Top
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Warning (10229): Verilog HDL Expression warning at LightSensorFilter.v(9): truncated literal to match 16 bits File: C:/Users/8stev/Desktop/computer archiecture/LineFollowRobot/LightSensorFilter.v Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file /users/8stev/desktop/computer archiecture/linefollowrobot/lightsensorfilter.v
     Info (12023): Found entity 1: LightSensorFilter File: C:/Users/8stev/Desktop/computer archiecture/LineFollowRobot/LightSensorFilter.v Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file /users/8stev/desktop/computer archiecture/linefollowrobot/pwm.v
@@ -340,26 +372,20 @@ Info (12127): Elaborating entity "Top" for the top level hierarchy
 Info (12128): Elaborating entity "LightSensorFilter" for hierarchy "LightSensorFilter:lsf1" File: C:/Users/8stev/Desktop/computer archiecture/LineFollowRobot/Top.v Line: 19
 Warning (10230): Verilog HDL assignment warning at LightSensorFilter.v(17): truncated value with size 32 to match size of target (17) File: C:/Users/8stev/Desktop/computer archiecture/LineFollowRobot/LightSensorFilter.v Line: 17
 Info (12128): Elaborating entity "LineFollow" for hierarchy "LineFollow:lf1" File: C:/Users/8stev/Desktop/computer archiecture/LineFollowRobot/Top.v Line: 26
-Info (12128): Elaborating entity "PWM" for hierarchy "LineFollow:lf1|PWM:pwmleft" File: C:/Users/8stev/Desktop/computer archiecture/LineFollowRobot/LineFollow.v Line: 13
-Warning (10230): Verilog HDL assignment warning at PWM.v(28): truncated value with size 32 to match size of target (8) File: C:/Users/8stev/Desktop/computer archiecture/LineFollowRobot/PWM.v Line: 28
+Info (12128): Elaborating entity "PWM" for hierarchy "LineFollow:lf1|PWM:pwmleft" File: C:/Users/8stev/Desktop/computer archiecture/LineFollowRobot/LineFollow.v Line: 14
+Warning (10230): Verilog HDL assignment warning at PWM.v(26): truncated value with size 32 to match size of target (8) File: C:/Users/8stev/Desktop/computer archiecture/LineFollowRobot/PWM.v Line: 26
 Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "PWM_OutR" is stuck at GND File: C:/Users/8stev/Desktop/computer archiecture/LineFollowRobot/Top.v Line: 16
     Warning (13410): Pin "dirR" is stuck at VCC File: C:/Users/8stev/Desktop/computer archiecture/LineFollowRobot/Top.v Line: 16
-    Warning (13410): Pin "PWM_OutL" is stuck at GND File: C:/Users/8stev/Desktop/computer archiecture/LineFollowRobot/Top.v Line: 16
     Warning (13410): Pin "dirL" is stuck at VCC File: C:/Users/8stev/Desktop/computer archiecture/LineFollowRobot/Top.v Line: 16
-Warning (21074): Design contains 4 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "clk" File: C:/Users/8stev/Desktop/computer archiecture/LineFollowRobot/Top.v Line: 14
-    Warning (15610): No output dependent on input pin "sensorLeftRaw" File: C:/Users/8stev/Desktop/computer archiecture/LineFollowRobot/Top.v Line: 15
-    Warning (15610): No output dependent on input pin "sensorMiddleRaw" File: C:/Users/8stev/Desktop/computer archiecture/LineFollowRobot/Top.v Line: 15
-    Warning (15610): No output dependent on input pin "sensorRightRaw" File: C:/Users/8stev/Desktop/computer archiecture/LineFollowRobot/Top.v Line: 15
-Info (21057): Implemented 8 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 109 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 4 input pins
     Info (21059): Implemented 4 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 15 warnings
+    Info (21061): Implemented 101 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 7 warnings
     Info: Peak virtual memory: 588 megabytes
-    Info: Processing ended: Sat Apr 22 17:58:34 2017
-    Info: Elapsed time: 00:00:14
+    Info: Processing ended: Sat Apr 22 18:23:59 2017
+    Info: Elapsed time: 00:00:12
     Info: Total CPU time (on all processors): 00:00:25
 
 

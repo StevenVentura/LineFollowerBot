@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for Top
-Sat Apr 22 17:58:42 2017
+Sat Apr 22 18:24:05 2017
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -16,11 +16,19 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
   8. Recovery Summary
   9. Removal Summary
  10. Minimum Pulse Width Summary
- 11. Clock Transfers
- 12. Report TCCS
- 13. Report RSKM
- 14. Unconstrained Paths Summary
- 15. TimeQuest Timing Analyzer Messages
+ 11. Setup: 'clk'
+ 12. Hold: 'clk'
+ 13. Setup Transfers
+ 14. Hold Transfers
+ 15. Report TCCS
+ 16. Report RSKM
+ 17. Unconstrained Paths Summary
+ 18. Clock Status Summary
+ 19. Unconstrained Input Ports
+ 20. Unconstrained Output Ports
+ 21. Unconstrained Input Ports
+ 22. Unconstrained Output Ports
+ 23. TimeQuest Timing Analyzer Messages
 
 
 
@@ -74,28 +82,41 @@ agreement for further details.
 +----------------------------+-------------+
 
 
-----------
-; Clocks ;
-----------
-No clocks to report.
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                          ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; clk        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
 
 
-----------------
-; Fmax Summary ;
-----------------
-No paths to report.
++-------------------------------------------------+
+; Fmax Summary                                    ;
++-----------+-----------------+------------+------+
+; Fmax      ; Restricted Fmax ; Clock Name ; Note ;
++-----------+-----------------+------------+------+
+; 116.2 MHz ; 116.2 MHz       ; clk        ;      ;
++-----------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
------------------
-; Setup Summary ;
------------------
-No paths to report.
++--------------------------------+
+; Setup Summary                  ;
++-------+--------+---------------+
+; Clock ; Slack  ; End Point TNS ;
++-------+--------+---------------+
+; clk   ; -7.606 ; -458.671      ;
++-------+--------+---------------+
 
 
-----------------
-; Hold Summary ;
-----------------
-No paths to report.
++-------------------------------+
+; Hold Summary                  ;
++-------+-------+---------------+
+; Clock ; Slack ; End Point TNS ;
++-------+-------+---------------+
+; clk   ; 1.649 ; 0.000         ;
++-------+-------+---------------+
 
 
 --------------------
@@ -110,16 +131,249 @@ No paths to report.
 No paths to report.
 
 
--------------------------------
-; Minimum Pulse Width Summary ;
--------------------------------
-No paths to report.
++--------------------------------+
+; Minimum Pulse Width Summary    ;
++-------+--------+---------------+
+; Clock ; Slack  ; End Point TNS ;
++-------+--------+---------------+
+; clk   ; -2.289 ; -2.289        ;
++-------+--------+---------------+
 
 
--------------------
-; Clock Transfers ;
--------------------
-Nothing to report.
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'clk'                                                                                                                                                   ;
++--------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                              ; To Node                                ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; -7.606 ; LightSensorFilter:lsf1|repeatCount[2]  ; LightSensorFilter:lsf1|repeatCount[3]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.273      ;
+; -7.606 ; LightSensorFilter:lsf1|repeatCount[2]  ; LightSensorFilter:lsf1|repeatCount[4]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.273      ;
+; -7.606 ; LightSensorFilter:lsf1|repeatCount[2]  ; LightSensorFilter:lsf1|repeatCount[1]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.273      ;
+; -7.606 ; LightSensorFilter:lsf1|repeatCount[2]  ; LightSensorFilter:lsf1|repeatCount[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.273      ;
+; -7.606 ; LightSensorFilter:lsf1|repeatCount[2]  ; LightSensorFilter:lsf1|repeatCount[5]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.273      ;
+; -7.606 ; LightSensorFilter:lsf1|repeatCount[2]  ; LightSensorFilter:lsf1|repeatCount[6]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.273      ;
+; -7.606 ; LightSensorFilter:lsf1|repeatCount[2]  ; LightSensorFilter:lsf1|repeatCount[7]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.273      ;
+; -7.606 ; LightSensorFilter:lsf1|repeatCount[2]  ; LightSensorFilter:lsf1|repeatCount[0]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.273      ;
+; -7.589 ; LightSensorFilter:lsf1|repeatCount[16] ; LightSensorFilter:lsf1|repeatCount[3]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.256      ;
+; -7.589 ; LightSensorFilter:lsf1|repeatCount[16] ; LightSensorFilter:lsf1|repeatCount[4]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.256      ;
+; -7.589 ; LightSensorFilter:lsf1|repeatCount[16] ; LightSensorFilter:lsf1|repeatCount[1]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.256      ;
+; -7.589 ; LightSensorFilter:lsf1|repeatCount[16] ; LightSensorFilter:lsf1|repeatCount[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.256      ;
+; -7.589 ; LightSensorFilter:lsf1|repeatCount[16] ; LightSensorFilter:lsf1|repeatCount[5]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.256      ;
+; -7.589 ; LightSensorFilter:lsf1|repeatCount[16] ; LightSensorFilter:lsf1|repeatCount[6]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.256      ;
+; -7.589 ; LightSensorFilter:lsf1|repeatCount[16] ; LightSensorFilter:lsf1|repeatCount[7]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.256      ;
+; -7.589 ; LightSensorFilter:lsf1|repeatCount[16] ; LightSensorFilter:lsf1|repeatCount[0]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.256      ;
+; -7.584 ; LightSensorFilter:lsf3|repeatCount[4]  ; LightSensorFilter:lsf3|repeatCount[8]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.251      ;
+; -7.584 ; LightSensorFilter:lsf3|repeatCount[4]  ; LightSensorFilter:lsf3|repeatCount[9]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.251      ;
+; -7.584 ; LightSensorFilter:lsf3|repeatCount[4]  ; LightSensorFilter:lsf3|repeatCount[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.251      ;
+; -7.584 ; LightSensorFilter:lsf3|repeatCount[4]  ; LightSensorFilter:lsf3|repeatCount[11] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.251      ;
+; -7.584 ; LightSensorFilter:lsf3|repeatCount[4]  ; LightSensorFilter:lsf3|repeatCount[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.251      ;
+; -7.584 ; LightSensorFilter:lsf3|repeatCount[4]  ; LightSensorFilter:lsf3|repeatCount[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.251      ;
+; -7.584 ; LightSensorFilter:lsf3|repeatCount[4]  ; LightSensorFilter:lsf3|repeatCount[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.251      ;
+; -7.584 ; LightSensorFilter:lsf3|repeatCount[4]  ; LightSensorFilter:lsf3|repeatCount[15] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.251      ;
+; -7.584 ; LightSensorFilter:lsf3|repeatCount[4]  ; LightSensorFilter:lsf3|repeatCount[16] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.251      ;
+; -7.584 ; LightSensorFilter:lsf3|repeatCount[8]  ; LightSensorFilter:lsf3|repeatCount[8]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.251      ;
+; -7.584 ; LightSensorFilter:lsf3|repeatCount[8]  ; LightSensorFilter:lsf3|repeatCount[9]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.251      ;
+; -7.584 ; LightSensorFilter:lsf3|repeatCount[8]  ; LightSensorFilter:lsf3|repeatCount[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.251      ;
+; -7.584 ; LightSensorFilter:lsf3|repeatCount[8]  ; LightSensorFilter:lsf3|repeatCount[11] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.251      ;
+; -7.584 ; LightSensorFilter:lsf3|repeatCount[8]  ; LightSensorFilter:lsf3|repeatCount[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.251      ;
+; -7.584 ; LightSensorFilter:lsf3|repeatCount[8]  ; LightSensorFilter:lsf3|repeatCount[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.251      ;
+; -7.584 ; LightSensorFilter:lsf3|repeatCount[8]  ; LightSensorFilter:lsf3|repeatCount[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.251      ;
+; -7.584 ; LightSensorFilter:lsf3|repeatCount[8]  ; LightSensorFilter:lsf3|repeatCount[15] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.251      ;
+; -7.584 ; LightSensorFilter:lsf3|repeatCount[8]  ; LightSensorFilter:lsf3|repeatCount[16] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.251      ;
+; -7.559 ; LightSensorFilter:lsf2|repeatCount[8]  ; LightSensorFilter:lsf2|repeatCount[8]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.226      ;
+; -7.559 ; LightSensorFilter:lsf2|repeatCount[8]  ; LightSensorFilter:lsf2|repeatCount[9]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.226      ;
+; -7.559 ; LightSensorFilter:lsf2|repeatCount[8]  ; LightSensorFilter:lsf2|repeatCount[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.226      ;
+; -7.559 ; LightSensorFilter:lsf2|repeatCount[8]  ; LightSensorFilter:lsf2|repeatCount[11] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.226      ;
+; -7.559 ; LightSensorFilter:lsf2|repeatCount[8]  ; LightSensorFilter:lsf2|repeatCount[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.226      ;
+; -7.559 ; LightSensorFilter:lsf2|repeatCount[8]  ; LightSensorFilter:lsf2|repeatCount[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.226      ;
+; -7.559 ; LightSensorFilter:lsf2|repeatCount[8]  ; LightSensorFilter:lsf2|repeatCount[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.226      ;
+; -7.559 ; LightSensorFilter:lsf2|repeatCount[8]  ; LightSensorFilter:lsf2|repeatCount[15] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.226      ;
+; -7.559 ; LightSensorFilter:lsf2|repeatCount[8]  ; LightSensorFilter:lsf2|repeatCount[16] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.226      ;
+; -7.547 ; LightSensorFilter:lsf2|repeatCount[9]  ; LightSensorFilter:lsf2|repeatCount[8]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.214      ;
+; -7.547 ; LightSensorFilter:lsf2|repeatCount[9]  ; LightSensorFilter:lsf2|repeatCount[9]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.214      ;
+; -7.547 ; LightSensorFilter:lsf2|repeatCount[9]  ; LightSensorFilter:lsf2|repeatCount[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.214      ;
+; -7.547 ; LightSensorFilter:lsf2|repeatCount[9]  ; LightSensorFilter:lsf2|repeatCount[11] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.214      ;
+; -7.547 ; LightSensorFilter:lsf2|repeatCount[9]  ; LightSensorFilter:lsf2|repeatCount[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.214      ;
+; -7.547 ; LightSensorFilter:lsf2|repeatCount[9]  ; LightSensorFilter:lsf2|repeatCount[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.214      ;
+; -7.547 ; LightSensorFilter:lsf2|repeatCount[9]  ; LightSensorFilter:lsf2|repeatCount[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.214      ;
+; -7.547 ; LightSensorFilter:lsf2|repeatCount[9]  ; LightSensorFilter:lsf2|repeatCount[15] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.214      ;
+; -7.547 ; LightSensorFilter:lsf2|repeatCount[9]  ; LightSensorFilter:lsf2|repeatCount[16] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.214      ;
+; -7.524 ; LightSensorFilter:lsf2|repeatCount[6]  ; LightSensorFilter:lsf2|repeatCount[8]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.191      ;
+; -7.524 ; LightSensorFilter:lsf2|repeatCount[6]  ; LightSensorFilter:lsf2|repeatCount[9]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.191      ;
+; -7.524 ; LightSensorFilter:lsf2|repeatCount[6]  ; LightSensorFilter:lsf2|repeatCount[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.191      ;
+; -7.524 ; LightSensorFilter:lsf2|repeatCount[6]  ; LightSensorFilter:lsf2|repeatCount[11] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.191      ;
+; -7.524 ; LightSensorFilter:lsf2|repeatCount[6]  ; LightSensorFilter:lsf2|repeatCount[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.191      ;
+; -7.524 ; LightSensorFilter:lsf2|repeatCount[6]  ; LightSensorFilter:lsf2|repeatCount[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.191      ;
+; -7.524 ; LightSensorFilter:lsf2|repeatCount[6]  ; LightSensorFilter:lsf2|repeatCount[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.191      ;
+; -7.524 ; LightSensorFilter:lsf2|repeatCount[6]  ; LightSensorFilter:lsf2|repeatCount[15] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.191      ;
+; -7.524 ; LightSensorFilter:lsf2|repeatCount[6]  ; LightSensorFilter:lsf2|repeatCount[16] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.191      ;
+; -7.495 ; LightSensorFilter:lsf2|repeatCount[16] ; LightSensorFilter:lsf2|repeatCount[8]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.162      ;
+; -7.495 ; LightSensorFilter:lsf2|repeatCount[16] ; LightSensorFilter:lsf2|repeatCount[9]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.162      ;
+; -7.495 ; LightSensorFilter:lsf2|repeatCount[16] ; LightSensorFilter:lsf2|repeatCount[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.162      ;
+; -7.495 ; LightSensorFilter:lsf2|repeatCount[16] ; LightSensorFilter:lsf2|repeatCount[11] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.162      ;
+; -7.495 ; LightSensorFilter:lsf2|repeatCount[16] ; LightSensorFilter:lsf2|repeatCount[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.162      ;
+; -7.495 ; LightSensorFilter:lsf2|repeatCount[16] ; LightSensorFilter:lsf2|repeatCount[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.162      ;
+; -7.495 ; LightSensorFilter:lsf2|repeatCount[16] ; LightSensorFilter:lsf2|repeatCount[14] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.162      ;
+; -7.495 ; LightSensorFilter:lsf2|repeatCount[16] ; LightSensorFilter:lsf2|repeatCount[15] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.162      ;
+; -7.495 ; LightSensorFilter:lsf2|repeatCount[16] ; LightSensorFilter:lsf2|repeatCount[16] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.162      ;
+; -7.494 ; LightSensorFilter:lsf1|repeatCount[7]  ; LightSensorFilter:lsf1|repeatCount[3]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.161      ;
+; -7.494 ; LightSensorFilter:lsf1|repeatCount[7]  ; LightSensorFilter:lsf1|repeatCount[4]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.161      ;
+; -7.494 ; LightSensorFilter:lsf1|repeatCount[7]  ; LightSensorFilter:lsf1|repeatCount[1]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.161      ;
+; -7.494 ; LightSensorFilter:lsf1|repeatCount[7]  ; LightSensorFilter:lsf1|repeatCount[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.161      ;
+; -7.494 ; LightSensorFilter:lsf1|repeatCount[7]  ; LightSensorFilter:lsf1|repeatCount[5]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.161      ;
+; -7.494 ; LightSensorFilter:lsf1|repeatCount[7]  ; LightSensorFilter:lsf1|repeatCount[6]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.161      ;
+; -7.494 ; LightSensorFilter:lsf1|repeatCount[7]  ; LightSensorFilter:lsf1|repeatCount[7]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.161      ;
+; -7.494 ; LightSensorFilter:lsf1|repeatCount[7]  ; LightSensorFilter:lsf1|repeatCount[0]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.161      ;
+; -7.489 ; LightSensorFilter:lsf1|repeatCount[12] ; LightSensorFilter:lsf1|repeatCount[3]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.156      ;
+; -7.489 ; LightSensorFilter:lsf1|repeatCount[12] ; LightSensorFilter:lsf1|repeatCount[4]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.156      ;
+; -7.489 ; LightSensorFilter:lsf1|repeatCount[12] ; LightSensorFilter:lsf1|repeatCount[1]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.156      ;
+; -7.489 ; LightSensorFilter:lsf1|repeatCount[12] ; LightSensorFilter:lsf1|repeatCount[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.156      ;
+; -7.489 ; LightSensorFilter:lsf1|repeatCount[12] ; LightSensorFilter:lsf1|repeatCount[5]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.156      ;
+; -7.489 ; LightSensorFilter:lsf1|repeatCount[12] ; LightSensorFilter:lsf1|repeatCount[6]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.156      ;
+; -7.489 ; LightSensorFilter:lsf1|repeatCount[12] ; LightSensorFilter:lsf1|repeatCount[7]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.156      ;
+; -7.489 ; LightSensorFilter:lsf1|repeatCount[12] ; LightSensorFilter:lsf1|repeatCount[0]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.156      ;
+; -7.415 ; LightSensorFilter:lsf1|repeatCount[6]  ; LightSensorFilter:lsf1|repeatCount[3]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.082      ;
+; -7.415 ; LightSensorFilter:lsf1|repeatCount[6]  ; LightSensorFilter:lsf1|repeatCount[4]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.082      ;
+; -7.415 ; LightSensorFilter:lsf1|repeatCount[6]  ; LightSensorFilter:lsf1|repeatCount[1]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.082      ;
+; -7.415 ; LightSensorFilter:lsf1|repeatCount[6]  ; LightSensorFilter:lsf1|repeatCount[2]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.082      ;
+; -7.415 ; LightSensorFilter:lsf1|repeatCount[6]  ; LightSensorFilter:lsf1|repeatCount[5]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.082      ;
+; -7.415 ; LightSensorFilter:lsf1|repeatCount[6]  ; LightSensorFilter:lsf1|repeatCount[6]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.082      ;
+; -7.415 ; LightSensorFilter:lsf1|repeatCount[6]  ; LightSensorFilter:lsf1|repeatCount[7]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.082      ;
+; -7.415 ; LightSensorFilter:lsf1|repeatCount[6]  ; LightSensorFilter:lsf1|repeatCount[0]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.082      ;
+; -7.413 ; LightSensorFilter:lsf3|repeatCount[11] ; LightSensorFilter:lsf3|repeatCount[8]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.080      ;
+; -7.413 ; LightSensorFilter:lsf3|repeatCount[11] ; LightSensorFilter:lsf3|repeatCount[9]  ; clk          ; clk         ; 1.000        ; 0.000      ; 8.080      ;
+; -7.413 ; LightSensorFilter:lsf3|repeatCount[11] ; LightSensorFilter:lsf3|repeatCount[10] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.080      ;
+; -7.413 ; LightSensorFilter:lsf3|repeatCount[11] ; LightSensorFilter:lsf3|repeatCount[11] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.080      ;
+; -7.413 ; LightSensorFilter:lsf3|repeatCount[11] ; LightSensorFilter:lsf3|repeatCount[12] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.080      ;
+; -7.413 ; LightSensorFilter:lsf3|repeatCount[11] ; LightSensorFilter:lsf3|repeatCount[13] ; clk          ; clk         ; 1.000        ; 0.000      ; 8.080      ;
++--------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'clk'                                                                                                                                                   ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                              ; To Node                                ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+; 1.649 ; LightSensorFilter:lsf1|repeatCount[16] ; LightSensorFilter:lsf1|repeatCount[16] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.870      ;
+; 1.652 ; LightSensorFilter:lsf2|latestPolarity  ; LightSensorFilter:lsf2|sensorFiltered  ; clk          ; clk         ; 0.000        ; 0.000      ; 1.873      ;
+; 1.669 ; LightSensorFilter:lsf3|repeatCount[16] ; LightSensorFilter:lsf3|repeatCount[16] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.890      ;
+; 1.688 ; LightSensorFilter:lsf3|sensorFiltered  ; LightSensorFilter:lsf3|sensorFiltered  ; clk          ; clk         ; 0.000        ; 0.000      ; 1.909      ;
+; 1.692 ; LightSensorFilter:lsf3|sensorFiltered  ; LineFollow:lf1|rightMotorSpeed[0]      ; clk          ; clk         ; 0.000        ; 0.000      ; 1.913      ;
+; 1.693 ; LightSensorFilter:lsf3|sensorFiltered  ; LineFollow:lf1|leftMotorSpeed[0]       ; clk          ; clk         ; 0.000        ; 0.000      ; 1.914      ;
+; 1.917 ; LightSensorFilter:lsf2|sensorFiltered  ; LightSensorFilter:lsf2|sensorFiltered  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.138      ;
+; 2.047 ; LightSensorFilter:lsf2|repeatCount[16] ; LightSensorFilter:lsf2|repeatCount[16] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.268      ;
+; 2.108 ; LightSensorFilter:lsf1|repeatCount[5]  ; LightSensorFilter:lsf1|repeatCount[5]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.329      ;
+; 2.108 ; LightSensorFilter:lsf3|repeatCount[5]  ; LightSensorFilter:lsf3|repeatCount[5]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.329      ;
+; 2.116 ; LightSensorFilter:lsf3|repeatCount[8]  ; LightSensorFilter:lsf3|repeatCount[8]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.337      ;
+; 2.117 ; LightSensorFilter:lsf1|repeatCount[7]  ; LightSensorFilter:lsf1|repeatCount[7]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117 ; LightSensorFilter:lsf1|repeatCount[9]  ; LightSensorFilter:lsf1|repeatCount[9]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117 ; LightSensorFilter:lsf1|repeatCount[10] ; LightSensorFilter:lsf1|repeatCount[10] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117 ; LightSensorFilter:lsf3|repeatCount[7]  ; LightSensorFilter:lsf3|repeatCount[7]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117 ; LightSensorFilter:lsf3|repeatCount[9]  ; LightSensorFilter:lsf3|repeatCount[9]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117 ; LightSensorFilter:lsf3|repeatCount[10] ; LightSensorFilter:lsf3|repeatCount[10] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117 ; LightSensorFilter:lsf2|repeatCount[9]  ; LightSensorFilter:lsf2|repeatCount[9]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117 ; LightSensorFilter:lsf2|repeatCount[10] ; LightSensorFilter:lsf2|repeatCount[10] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117 ; LightSensorFilter:lsf1|repeatCount[0]  ; LightSensorFilter:lsf1|repeatCount[0]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117 ; LightSensorFilter:lsf3|repeatCount[0]  ; LightSensorFilter:lsf3|repeatCount[0]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.338      ;
+; 2.125 ; LightSensorFilter:lsf1|sensorFiltered  ; LightSensorFilter:lsf1|sensorFiltered  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.346      ;
+; 2.125 ; LightSensorFilter:lsf2|repeatCount[8]  ; LightSensorFilter:lsf2|repeatCount[8]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.346      ;
+; 2.126 ; LightSensorFilter:lsf1|repeatCount[15] ; LightSensorFilter:lsf1|repeatCount[15] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; LightSensorFilter:lsf2|repeatCount[5]  ; LightSensorFilter:lsf2|repeatCount[5]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; LightSensorFilter:lsf2|repeatCount[0]  ; LightSensorFilter:lsf2|repeatCount[0]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.347      ;
+; 2.134 ; LightSensorFilter:lsf1|repeatCount[8]  ; LightSensorFilter:lsf1|repeatCount[8]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.355      ;
+; 2.137 ; LightSensorFilter:lsf2|repeatCount[7]  ; LightSensorFilter:lsf2|repeatCount[7]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.358      ;
+; 2.141 ; LineFollow:lf1|PWM:pwmright|counter[0] ; LineFollow:lf1|PWM:pwmright|counter[0] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.362      ;
+; 2.141 ; LineFollow:lf1|PWM:pwmleft|counter[0]  ; LineFollow:lf1|PWM:pwmleft|counter[0]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.362      ;
+; 2.143 ; LineFollow:lf1|PWM:pwmright|counter[2] ; LineFollow:lf1|PWM:pwmright|counter[2] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.364      ;
+; 2.143 ; LineFollow:lf1|PWM:pwmleft|counter[2]  ; LineFollow:lf1|PWM:pwmleft|counter[2]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.364      ;
+; 2.144 ; LineFollow:lf1|PWM:pwmright|counter[1] ; LineFollow:lf1|PWM:pwmright|counter[1] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.365      ;
+; 2.144 ; LineFollow:lf1|PWM:pwmright|counter[7] ; LineFollow:lf1|PWM:pwmright|counter[7] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.365      ;
+; 2.144 ; LineFollow:lf1|PWM:pwmleft|counter[1]  ; LineFollow:lf1|PWM:pwmleft|counter[1]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.365      ;
+; 2.144 ; LineFollow:lf1|PWM:pwmleft|counter[7]  ; LineFollow:lf1|PWM:pwmleft|counter[7]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.365      ;
+; 2.212 ; LightSensorFilter:lsf3|latestPolarity  ; LightSensorFilter:lsf3|sensorFiltered  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.433      ;
+; 2.213 ; LineFollow:lf1|PWM:pwmright|PWM_Out    ; LineFollow:lf1|PWM:pwmright|PWM_Out    ; clk          ; clk         ; 0.000        ; 0.000      ; 2.434      ;
+; 2.221 ; LightSensorFilter:lsf1|repeatCount[6]  ; LightSensorFilter:lsf1|repeatCount[6]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.442      ;
+; 2.221 ; LightSensorFilter:lsf1|repeatCount[11] ; LightSensorFilter:lsf1|repeatCount[11] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.442      ;
+; 2.221 ; LightSensorFilter:lsf2|repeatCount[11] ; LightSensorFilter:lsf2|repeatCount[11] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.442      ;
+; 2.222 ; LightSensorFilter:lsf1|repeatCount[2]  ; LightSensorFilter:lsf1|repeatCount[2]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.443      ;
+; 2.230 ; LightSensorFilter:lsf1|repeatCount[13] ; LightSensorFilter:lsf1|repeatCount[13] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.451      ;
+; 2.230 ; LightSensorFilter:lsf3|repeatCount[6]  ; LightSensorFilter:lsf3|repeatCount[6]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.451      ;
+; 2.230 ; LightSensorFilter:lsf3|repeatCount[11] ; LightSensorFilter:lsf3|repeatCount[11] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.451      ;
+; 2.230 ; LightSensorFilter:lsf2|repeatCount[3]  ; LightSensorFilter:lsf2|repeatCount[3]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.451      ;
+; 2.230 ; LightSensorFilter:lsf2|repeatCount[14] ; LightSensorFilter:lsf2|repeatCount[14] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.451      ;
+; 2.231 ; LightSensorFilter:lsf1|repeatCount[12] ; LightSensorFilter:lsf1|repeatCount[12] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.452      ;
+; 2.231 ; LightSensorFilter:lsf1|repeatCount[14] ; LightSensorFilter:lsf1|repeatCount[14] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.452      ;
+; 2.231 ; LightSensorFilter:lsf3|repeatCount[12] ; LightSensorFilter:lsf3|repeatCount[12] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.452      ;
+; 2.231 ; LightSensorFilter:lsf2|repeatCount[4]  ; LightSensorFilter:lsf2|repeatCount[4]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.452      ;
+; 2.231 ; LightSensorFilter:lsf2|repeatCount[1]  ; LightSensorFilter:lsf2|repeatCount[1]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.452      ;
+; 2.231 ; LightSensorFilter:lsf2|repeatCount[2]  ; LightSensorFilter:lsf2|repeatCount[2]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.452      ;
+; 2.231 ; LightSensorFilter:lsf2|repeatCount[12] ; LightSensorFilter:lsf2|repeatCount[12] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.452      ;
+; 2.233 ; LineFollow:lf1|PWM:pwmright|counter[3] ; LineFollow:lf1|PWM:pwmright|counter[3] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.454      ;
+; 2.233 ; LineFollow:lf1|PWM:pwmleft|counter[3]  ; LineFollow:lf1|PWM:pwmleft|counter[3]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.454      ;
+; 2.234 ; LightSensorFilter:lsf1|latestPolarity  ; LightSensorFilter:lsf1|sensorFiltered  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.455      ;
+; 2.241 ; LightSensorFilter:lsf3|repeatCount[1]  ; LightSensorFilter:lsf3|repeatCount[1]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.462      ;
+; 2.241 ; LightSensorFilter:lsf2|repeatCount[6]  ; LightSensorFilter:lsf2|repeatCount[6]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.462      ;
+; 2.248 ; LightSensorFilter:lsf3|repeatCount[4]  ; LightSensorFilter:lsf3|repeatCount[4]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.469      ;
+; 2.249 ; LineFollow:lf1|PWM:pwmright|counter[4] ; LineFollow:lf1|PWM:pwmright|counter[4] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.470      ;
+; 2.249 ; LineFollow:lf1|PWM:pwmleft|counter[4]  ; LineFollow:lf1|PWM:pwmleft|counter[4]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.470      ;
+; 2.259 ; LightSensorFilter:lsf3|repeatCount[3]  ; LightSensorFilter:lsf3|repeatCount[3]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.480      ;
+; 2.260 ; LineFollow:lf1|PWM:pwmright|counter[5] ; LineFollow:lf1|PWM:pwmright|counter[5] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.481      ;
+; 2.260 ; LineFollow:lf1|PWM:pwmleft|counter[5]  ; LineFollow:lf1|PWM:pwmleft|counter[5]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.481      ;
+; 2.262 ; LineFollow:lf1|PWM:pwmright|counter[6] ; LineFollow:lf1|PWM:pwmright|counter[6] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.483      ;
+; 2.262 ; LineFollow:lf1|PWM:pwmleft|counter[6]  ; LineFollow:lf1|PWM:pwmleft|counter[6]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.483      ;
+; 2.262 ; LightSensorFilter:lsf3|repeatCount[2]  ; LightSensorFilter:lsf3|repeatCount[2]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.483      ;
+; 2.499 ; LightSensorFilter:lsf3|repeatCount[14] ; LightSensorFilter:lsf3|repeatCount[14] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.720      ;
+; 2.510 ; LineFollow:lf1|PWM:pwmright|counter[4] ; LineFollow:lf1|PWM:pwmright|PWM_Out    ; clk          ; clk         ; 0.000        ; 0.000      ; 2.731      ;
+; 2.532 ; LineFollow:lf1|PWM:pwmleft|counter[4]  ; LineFollow:lf1|PWM:pwmleft|PWM_Out     ; clk          ; clk         ; 0.000        ; 0.000      ; 2.753      ;
+; 2.555 ; LightSensorFilter:lsf1|repeatCount[4]  ; LightSensorFilter:lsf1|repeatCount[4]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.776      ;
+; 2.605 ; LineFollow:lf1|PWM:pwmleft|PWM_Out     ; LineFollow:lf1|PWM:pwmleft|PWM_Out     ; clk          ; clk         ; 0.000        ; 0.000      ; 2.826      ;
+; 2.619 ; LightSensorFilter:lsf3|repeatCount[15] ; LightSensorFilter:lsf3|repeatCount[15] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.840      ;
+; 2.619 ; LightSensorFilter:lsf2|repeatCount[15] ; LightSensorFilter:lsf2|repeatCount[15] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.840      ;
+; 2.628 ; LightSensorFilter:lsf3|repeatCount[13] ; LightSensorFilter:lsf3|repeatCount[13] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.849      ;
+; 2.628 ; LightSensorFilter:lsf2|repeatCount[13] ; LightSensorFilter:lsf2|repeatCount[13] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.849      ;
+; 2.631 ; LightSensorFilter:lsf1|repeatCount[3]  ; LightSensorFilter:lsf1|repeatCount[3]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.852      ;
+; 2.654 ; LightSensorFilter:lsf1|repeatCount[1]  ; LightSensorFilter:lsf1|repeatCount[1]  ; clk          ; clk         ; 0.000        ; 0.000      ; 2.875      ;
+; 2.940 ; LightSensorFilter:lsf1|repeatCount[5]  ; LightSensorFilter:lsf1|repeatCount[6]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.161      ;
+; 2.940 ; LightSensorFilter:lsf3|repeatCount[5]  ; LightSensorFilter:lsf3|repeatCount[6]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.161      ;
+; 2.948 ; LightSensorFilter:lsf3|repeatCount[8]  ; LightSensorFilter:lsf3|repeatCount[9]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.169      ;
+; 2.949 ; LightSensorFilter:lsf1|repeatCount[0]  ; LightSensorFilter:lsf1|repeatCount[1]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.170      ;
+; 2.949 ; LightSensorFilter:lsf1|repeatCount[9]  ; LightSensorFilter:lsf1|repeatCount[10] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.170      ;
+; 2.949 ; LightSensorFilter:lsf1|repeatCount[10] ; LightSensorFilter:lsf1|repeatCount[11] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.170      ;
+; 2.949 ; LightSensorFilter:lsf3|repeatCount[0]  ; LightSensorFilter:lsf3|repeatCount[1]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.170      ;
+; 2.949 ; LightSensorFilter:lsf3|repeatCount[9]  ; LightSensorFilter:lsf3|repeatCount[10] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.170      ;
+; 2.949 ; LightSensorFilter:lsf3|repeatCount[10] ; LightSensorFilter:lsf3|repeatCount[11] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.170      ;
+; 2.949 ; LightSensorFilter:lsf2|repeatCount[9]  ; LightSensorFilter:lsf2|repeatCount[10] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.170      ;
+; 2.949 ; LightSensorFilter:lsf2|repeatCount[10] ; LightSensorFilter:lsf2|repeatCount[11] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.170      ;
+; 2.957 ; LightSensorFilter:lsf2|repeatCount[8]  ; LightSensorFilter:lsf2|repeatCount[9]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.178      ;
+; 2.958 ; LightSensorFilter:lsf1|repeatCount[15] ; LightSensorFilter:lsf1|repeatCount[16] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.179      ;
+; 2.958 ; LightSensorFilter:lsf2|repeatCount[0]  ; LightSensorFilter:lsf2|repeatCount[1]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.179      ;
+; 2.958 ; LightSensorFilter:lsf2|repeatCount[5]  ; LightSensorFilter:lsf2|repeatCount[6]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.179      ;
+; 2.966 ; LightSensorFilter:lsf1|repeatCount[8]  ; LightSensorFilter:lsf1|repeatCount[9]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.187      ;
+; 2.967 ; LineFollow:lf1|leftMotorSpeed[0]       ; LineFollow:lf1|PWM:pwmleft|PWM_Out     ; clk          ; clk         ; 0.000        ; 0.000      ; 3.188      ;
+; 2.973 ; LineFollow:lf1|PWM:pwmright|counter[0] ; LineFollow:lf1|PWM:pwmright|counter[1] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.194      ;
+; 2.973 ; LineFollow:lf1|PWM:pwmleft|counter[0]  ; LineFollow:lf1|PWM:pwmleft|counter[1]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.194      ;
+; 2.975 ; LineFollow:lf1|PWM:pwmright|counter[2] ; LineFollow:lf1|PWM:pwmright|counter[3] ; clk          ; clk         ; 0.000        ; 0.000      ; 3.196      ;
+; 2.975 ; LineFollow:lf1|PWM:pwmleft|counter[2]  ; LineFollow:lf1|PWM:pwmleft|counter[3]  ; clk          ; clk         ; 0.000        ; 0.000      ; 3.196      ;
++-------+----------------------------------------+----------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 1875     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 1875     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
 
 ---------------
@@ -141,11 +395,62 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
-; Unconstrained Input Ports       ; 0     ; 0    ;
-; Unconstrained Input Port Paths  ; 0     ; 0    ;
-; Unconstrained Output Ports      ; 0     ; 0    ;
-; Unconstrained Output Port Paths ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 3     ; 3    ;
+; Unconstrained Input Port Paths  ; 57    ; 57   ;
+; Unconstrained Output Ports      ; 2     ; 2    ;
+; Unconstrained Output Port Paths ; 2     ; 2    ;
 +---------------------------------+-------+------+
+
+
++-------------------------------------+
+; Clock Status Summary                ;
++--------+-------+------+-------------+
+; Target ; Clock ; Type ; Status      ;
++--------+-------+------+-------------+
+; clk    ; clk   ; Base ; Constrained ;
++--------+-------+------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                              ;
++-----------------+--------------------------------------------------------------------------------------+
+; Input Port      ; Comment                                                                              ;
++-----------------+--------------------------------------------------------------------------------------+
+; sensorLeftRaw   ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; sensorMiddleRaw ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; sensorRightRaw  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-----------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; PWM_OutL    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; PWM_OutR    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                              ;
++-----------------+--------------------------------------------------------------------------------------+
+; Input Port      ; Comment                                                                              ;
++-----------------+--------------------------------------------------------------------------------------+
+; sensorLeftRaw   ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; sensorMiddleRaw ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; sensorRightRaw  ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-----------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; PWM_OutL    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; PWM_OutR    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
 
 
 +------------------------------------+
@@ -154,7 +459,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime TimeQuest Timing Analyzer
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Sat Apr 22 17:58:41 2017
+    Info: Processing started: Sat Apr 22 18:24:04 2017
 Info: Command: quartus_sta Top -c Top
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -165,23 +470,31 @@ Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'Top.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
-Info (332096): The command derive_clocks did not find any clocks to derive.  No clocks were created or changed.
-Warning (332068): No clocks defined in design.
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clk clk
 Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
-Info (332159): No clocks to report
-Info (332140): No fmax paths to report
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
-Info (332140): No Setup paths to report
-Info (332140): No Hold paths to report
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -7.606
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -7.606            -458.671 clk 
+Info (332146): Worst-case hold slack is 1.649
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     1.649               0.000 clk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332140): No Minimum Pulse Width paths to report
+Info (332146): Worst-case minimum pulse width slack is -2.289
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.289              -2.289 clk 
 Info (332001): The selected device family is not supported by the report_metastability command.
-Info (332101): Design is fully constrained for setup requirements
-Info (332101): Design is fully constrained for hold requirements
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime TimeQuest Timing Analyzer was successful. 0 errors, 3 warnings
     Info: Peak virtual memory: 555 megabytes
-    Info: Processing ended: Sat Apr 22 17:58:42 2017
+    Info: Processing ended: Sat Apr 22 18:24:05 2017
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
