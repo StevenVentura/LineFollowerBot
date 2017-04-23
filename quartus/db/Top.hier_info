@@ -10,80 +10,20 @@ sensorRightRaw => sensorRightRaw.IN1
 
 
 |Top|LightSensorFilter:lsf1
-clk => latestPolarity.CLK
 clk => sensorFiltered~reg0.CLK
-clk => repeatCount[0].CLK
-clk => repeatCount[1].CLK
-clk => repeatCount[2].CLK
-clk => repeatCount[3].CLK
-clk => repeatCount[4].CLK
-clk => repeatCount[5].CLK
-clk => repeatCount[6].CLK
-clk => repeatCount[7].CLK
-clk => repeatCount[8].CLK
-clk => repeatCount[9].CLK
-clk => repeatCount[10].CLK
-clk => repeatCount[11].CLK
-clk => repeatCount[12].CLK
-clk => repeatCount[13].CLK
-clk => repeatCount[14].CLK
-clk => repeatCount[15].CLK
-clk => repeatCount[16].CLK
-sensorRaw => always0.IN1
-sensorRaw => sensorFiltered.DATAB
-sensorRaw => latestPolarity.DATAIN
+sensorRaw => sensorFiltered~reg0.DATAIN
 sensorFiltered <= sensorFiltered~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |Top|LightSensorFilter:lsf2
-clk => latestPolarity.CLK
 clk => sensorFiltered~reg0.CLK
-clk => repeatCount[0].CLK
-clk => repeatCount[1].CLK
-clk => repeatCount[2].CLK
-clk => repeatCount[3].CLK
-clk => repeatCount[4].CLK
-clk => repeatCount[5].CLK
-clk => repeatCount[6].CLK
-clk => repeatCount[7].CLK
-clk => repeatCount[8].CLK
-clk => repeatCount[9].CLK
-clk => repeatCount[10].CLK
-clk => repeatCount[11].CLK
-clk => repeatCount[12].CLK
-clk => repeatCount[13].CLK
-clk => repeatCount[14].CLK
-clk => repeatCount[15].CLK
-clk => repeatCount[16].CLK
-sensorRaw => always0.IN1
-sensorRaw => sensorFiltered.DATAB
-sensorRaw => latestPolarity.DATAIN
+sensorRaw => sensorFiltered~reg0.DATAIN
 sensorFiltered <= sensorFiltered~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |Top|LightSensorFilter:lsf3
-clk => latestPolarity.CLK
 clk => sensorFiltered~reg0.CLK
-clk => repeatCount[0].CLK
-clk => repeatCount[1].CLK
-clk => repeatCount[2].CLK
-clk => repeatCount[3].CLK
-clk => repeatCount[4].CLK
-clk => repeatCount[5].CLK
-clk => repeatCount[6].CLK
-clk => repeatCount[7].CLK
-clk => repeatCount[8].CLK
-clk => repeatCount[9].CLK
-clk => repeatCount[10].CLK
-clk => repeatCount[11].CLK
-clk => repeatCount[12].CLK
-clk => repeatCount[13].CLK
-clk => repeatCount[14].CLK
-clk => repeatCount[15].CLK
-clk => repeatCount[16].CLK
-sensorRaw => always0.IN1
-sensorRaw => sensorFiltered.DATAB
-sensorRaw => latestPolarity.DATAIN
+sensorRaw => sensorFiltered~reg0.DATAIN
 sensorFiltered <= sensorFiltered~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
@@ -108,15 +48,22 @@ clk => counter[4].CLK
 clk => counter[5].CLK
 clk => counter[6].CLK
 clk => counter[7].CLK
-enable => counter.OUTPUTSELECT
-enable => counter.OUTPUTSELECT
-enable => counter.OUTPUTSELECT
-enable => counter.OUTPUTSELECT
-enable => counter.OUTPUTSELECT
-enable => counter.OUTPUTSELECT
-enable => counter.OUTPUTSELECT
-enable => counter.OUTPUTSELECT
-enable => PWM_Out~reg0.ENA
+speed[0] => LessThan0.IN8
+speed[0] => LessThan1.IN8
+speed[1] => LessThan0.IN7
+speed[1] => LessThan1.IN7
+speed[2] => LessThan0.IN6
+speed[2] => LessThan1.IN6
+speed[3] => LessThan0.IN5
+speed[3] => LessThan1.IN5
+speed[4] => LessThan0.IN4
+speed[4] => LessThan1.IN4
+speed[5] => LessThan0.IN3
+speed[5] => LessThan1.IN3
+speed[6] => LessThan0.IN2
+speed[6] => LessThan1.IN2
+speed[7] => LessThan0.IN1
+speed[7] => LessThan1.IN1
 PWM_Out <= PWM_Out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
@@ -130,15 +77,22 @@ clk => counter[4].CLK
 clk => counter[5].CLK
 clk => counter[6].CLK
 clk => counter[7].CLK
-enable => counter.OUTPUTSELECT
-enable => counter.OUTPUTSELECT
-enable => counter.OUTPUTSELECT
-enable => counter.OUTPUTSELECT
-enable => counter.OUTPUTSELECT
-enable => counter.OUTPUTSELECT
-enable => counter.OUTPUTSELECT
-enable => counter.OUTPUTSELECT
-enable => PWM_Out~reg0.ENA
+speed[0] => LessThan0.IN8
+speed[0] => LessThan1.IN8
+speed[1] => LessThan0.IN7
+speed[1] => LessThan1.IN7
+speed[2] => LessThan0.IN6
+speed[2] => LessThan1.IN6
+speed[3] => LessThan0.IN5
+speed[3] => LessThan1.IN5
+speed[4] => LessThan0.IN4
+speed[4] => LessThan1.IN4
+speed[5] => LessThan0.IN3
+speed[5] => LessThan1.IN3
+speed[6] => LessThan0.IN2
+speed[6] => LessThan1.IN2
+speed[7] => LessThan0.IN1
+speed[7] => LessThan1.IN1
 PWM_Out <= PWM_Out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 

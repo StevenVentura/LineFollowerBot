@@ -19,14 +19,15 @@ wire [2:0] sensors;
 
 assign sensors = {sensorLeftFiltered,sensorMiddleFiltered,sensorRightFiltered};
 
-parameter MAX = 7'b00001111,
-		  HALF= 7'b00000011,
-		  OFF = 7'b00000000;
+parameter MAX = 8'b00001111,
+		  HALF= 8'b00000011,
+		  OFF = 8'b00000000;
 
 //now do the actual linefollowing
 always @(posedge clk) begin
 dirL <= 1;
 dirR <= 1;
+
 case(sensors)
 3'b000: begin
 //at a "T" intersection 

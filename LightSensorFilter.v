@@ -11,8 +11,12 @@ parameter [16:0] arbitraryRepeats = 16'd5;
 reg[16:0] repeatCount=0;
 reg latestPolarity=0;
 
-always @(posedge clk) begin
 
+
+
+always @(posedge clk) begin
+sensorFiltered <= sensorRaw;
+/*
 if (sensorRaw == latestPolarity) begin
 repeatCount <= repeatCount + 1;
 if (repeatCount > arbitraryRepeats) begin
@@ -26,7 +30,7 @@ else
 
 //save the last one
 latestPolarity <= sensorRaw;
-
+*/
 end//end always
 
 endmodule
