@@ -19,9 +19,9 @@ wire [2:0] sensors;
 
 assign sensors = {sensorLeftFiltered,sensorMiddleFiltered,sensorRightFiltered};
 
-parameter MAX = 8'b00001111,
-		  HALF= 8'b00000011,
-		  OFF = 8'b00000000;
+parameter MAX = 8'b10000000,//50% duty
+		  HALF= 8'b01000000,//25% duty
+		  OFF = 8'b00000000;//0% duty
 
 //now do the actual linefollowing
 always @(posedge clk) begin

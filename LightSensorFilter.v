@@ -9,15 +9,15 @@ output reg sensorFiltered = 0;
 parameter [16:0] arbitraryRepeats = 16'd5;
 
 reg[16:0] repeatCount=0;
-reg latestPolarity=0;
+reg lastValue=0;
 
 
 
 
 always @(posedge clk) begin
-sensorFiltered <= sensorRaw;
-/*
-if (sensorRaw == latestPolarity) begin
+//sensorFiltered <= sensorRaw;
+
+if (sensorRaw == lastValue) begin
 repeatCount <= repeatCount + 1;
 if (repeatCount > arbitraryRepeats) begin
 repeatCount <= 0;
@@ -29,8 +29,8 @@ else
 	repeatCount <= 0;//it changed so restart the counter!
 
 //save the last one
-latestPolarity <= sensorRaw;
-*/
+lastValue <= sensorRaw;
+
 end//end always
 
 endmodule

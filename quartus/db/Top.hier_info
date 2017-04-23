@@ -10,20 +10,80 @@ sensorRightRaw => sensorRightRaw.IN1
 
 
 |Top|LightSensorFilter:lsf1
+clk => lastValue.CLK
 clk => sensorFiltered~reg0.CLK
-sensorRaw => sensorFiltered~reg0.DATAIN
+clk => repeatCount[0].CLK
+clk => repeatCount[1].CLK
+clk => repeatCount[2].CLK
+clk => repeatCount[3].CLK
+clk => repeatCount[4].CLK
+clk => repeatCount[5].CLK
+clk => repeatCount[6].CLK
+clk => repeatCount[7].CLK
+clk => repeatCount[8].CLK
+clk => repeatCount[9].CLK
+clk => repeatCount[10].CLK
+clk => repeatCount[11].CLK
+clk => repeatCount[12].CLK
+clk => repeatCount[13].CLK
+clk => repeatCount[14].CLK
+clk => repeatCount[15].CLK
+clk => repeatCount[16].CLK
+sensorRaw => always0.IN1
+sensorRaw => sensorFiltered.DATAB
+sensorRaw => lastValue.DATAIN
 sensorFiltered <= sensorFiltered~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |Top|LightSensorFilter:lsf2
+clk => lastValue.CLK
 clk => sensorFiltered~reg0.CLK
-sensorRaw => sensorFiltered~reg0.DATAIN
+clk => repeatCount[0].CLK
+clk => repeatCount[1].CLK
+clk => repeatCount[2].CLK
+clk => repeatCount[3].CLK
+clk => repeatCount[4].CLK
+clk => repeatCount[5].CLK
+clk => repeatCount[6].CLK
+clk => repeatCount[7].CLK
+clk => repeatCount[8].CLK
+clk => repeatCount[9].CLK
+clk => repeatCount[10].CLK
+clk => repeatCount[11].CLK
+clk => repeatCount[12].CLK
+clk => repeatCount[13].CLK
+clk => repeatCount[14].CLK
+clk => repeatCount[15].CLK
+clk => repeatCount[16].CLK
+sensorRaw => always0.IN1
+sensorRaw => sensorFiltered.DATAB
+sensorRaw => lastValue.DATAIN
 sensorFiltered <= sensorFiltered~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |Top|LightSensorFilter:lsf3
+clk => lastValue.CLK
 clk => sensorFiltered~reg0.CLK
-sensorRaw => sensorFiltered~reg0.DATAIN
+clk => repeatCount[0].CLK
+clk => repeatCount[1].CLK
+clk => repeatCount[2].CLK
+clk => repeatCount[3].CLK
+clk => repeatCount[4].CLK
+clk => repeatCount[5].CLK
+clk => repeatCount[6].CLK
+clk => repeatCount[7].CLK
+clk => repeatCount[8].CLK
+clk => repeatCount[9].CLK
+clk => repeatCount[10].CLK
+clk => repeatCount[11].CLK
+clk => repeatCount[12].CLK
+clk => repeatCount[13].CLK
+clk => repeatCount[14].CLK
+clk => repeatCount[15].CLK
+clk => repeatCount[16].CLK
+sensorRaw => always0.IN1
+sensorRaw => sensorFiltered.DATAB
+sensorRaw => lastValue.DATAIN
 sensorFiltered <= sensorFiltered~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 

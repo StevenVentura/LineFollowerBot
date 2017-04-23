@@ -1,5 +1,5 @@
 Fitter report for Top
-Sat Apr 22 20:21:07 2017
+Sat Apr 22 21:03:30 2017
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -56,14 +56,14 @@ agreement for further details.
 +---------------------------------------------------------------------+
 ; Fitter Summary                                                      ;
 +-----------------------+---------------------------------------------+
-; Fitter Status         ; Successful - Sat Apr 22 20:21:07 2017       ;
+; Fitter Status         ; Successful - Sat Apr 22 21:03:30 2017       ;
 ; Quartus Prime Version ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name         ; Top                                         ;
 ; Top-level Entity Name ; Top                                         ;
 ; Family                ; MAX II                                      ;
 ; Device                ; EPM240T100C5                                ;
 ; Timing Models         ; Final                                       ;
-; Total logic elements  ; 23 / 240 ( 10 % )                           ;
+; Total logic elements  ; 89 / 240 ( 37 % )                           ;
 ; Total pins            ; 8 / 80 ( 10 % )                             ;
 ; Total virtual pins    ; 0                                           ;
 ; UFM blocks            ; 0 / 1 ( 0 % )                               ;
@@ -127,12 +127,12 @@ agreement for further details.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.01        ;
+; Average used               ; 1.02        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.3%      ;
+;     Processors 2-4         ;   0.6%      ;
 +----------------------------+-------------+
 
 
@@ -147,29 +147,29 @@ The pin-out file can be found in C:/Users/8stev/Desktop/computer archiecture/Lin
 +---------------------------------------------+--------------------+
 ; Resource                                    ; Usage              ;
 +---------------------------------------------+--------------------+
-; Total logic elements                        ; 23 / 240 ( 10 % )  ;
-;     -- Combinational with no register       ; 6                  ;
-;     -- Register only                        ; 3                  ;
-;     -- Combinational with a register        ; 14                 ;
+; Total logic elements                        ; 89 / 240 ( 37 % )  ;
+;     -- Combinational with no register       ; 18                 ;
+;     -- Register only                        ; 0                  ;
+;     -- Combinational with a register        ; 71                 ;
 ;                                             ;                    ;
 ; Logic element usage by number of LUT inputs ;                    ;
-;     -- 4 input functions                    ; 5                  ;
-;     -- 3 input functions                    ; 4                  ;
-;     -- 2 input functions                    ; 10                 ;
-;     -- 1 input functions                    ; 1                  ;
+;     -- 4 input functions                    ; 22                 ;
+;     -- 3 input functions                    ; 7                  ;
+;     -- 2 input functions                    ; 56                 ;
+;     -- 1 input functions                    ; 4                  ;
 ;     -- 0 input functions                    ; 0                  ;
 ;                                             ;                    ;
 ; Logic elements by mode                      ;                    ;
-;     -- normal mode                          ; 17                 ;
-;     -- arithmetic mode                      ; 6                  ;
-;     -- qfbk mode                            ; 0                  ;
+;     -- normal mode                          ; 35                 ;
+;     -- arithmetic mode                      ; 54                 ;
+;     -- qfbk mode                            ; 3                  ;
 ;     -- register cascade mode                ; 0                  ;
-;     -- synchronous clear/load mode          ; 0                  ;
+;     -- synchronous clear/load mode          ; 54                 ;
 ;     -- asynchronous clear/load mode         ; 0                  ;
 ;                                             ;                    ;
-; Total registers                             ; 17 / 240 ( 7 % )   ;
-; Total LABs                                  ; 3 / 24 ( 13 % )    ;
-; Logic elements in carry chains              ; 7                  ;
+; Total registers                             ; 71 / 240 ( 30 % )  ;
+; Total LABs                                  ; 11 / 24 ( 46 % )   ;
+; Logic elements in carry chains              ; 58                 ;
 ; Virtual pins                                ; 0                  ;
 ; I/O pins                                    ; 8 / 80 ( 10 % )    ;
 ;     -- Clock pins                           ; 1 / 4 ( 25 % )     ;
@@ -182,12 +182,12 @@ The pin-out file can be found in C:/Users/8stev/Desktop/computer archiecture/Lin
 ; Global signals                              ; 1                  ;
 ;     -- Global clocks                        ; 1 / 4 ( 25 % )     ;
 ; JTAGs                                       ; 0 / 1 ( 0 % )      ;
-; Average interconnect usage (total/H/V)      ; 1.5% / 1.7% / 1.4% ;
-; Peak interconnect usage (total/H/V)         ; 1.5% / 1.7% / 1.4% ;
-; Maximum fan-out                             ; 17                 ;
-; Highest non-global fan-out                  ; 4                  ;
-; Total fan-out                               ; 79                 ;
-; Average fan-out                             ; 2.55               ;
+; Average interconnect usage (total/H/V)      ; 3.1% / 4.3% / 1.8% ;
+; Peak interconnect usage (total/H/V)         ; 3.1% / 4.3% / 1.8% ;
+; Maximum fan-out                             ; 71                 ;
+; Highest non-global fan-out                  ; 17                 ;
+; Total fan-out                               ; 383                ;
+; Average fan-out                             ; 3.95               ;
 +---------------------------------------------+--------------------+
 
 
@@ -196,10 +196,10 @@ The pin-out file can be found in C:/Users/8stev/Desktop/computer archiecture/Lin
 +-----------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+-----------------+----------+--------------+--------------+----------------------+----------------+
 ; Name            ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Combinational Fan-Out ; Registered Fan-Out ; Global ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Location assigned by ; Slow Slew Rate ;
 +-----------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+-----------------+----------+--------------+--------------+----------------------+----------------+
-; clk             ; 12    ; 1        ; 1            ; 3            ; 3           ; 17                    ; 0                  ; yes    ; no              ; no       ; Off          ; 3.3-V LVTTL  ; User                 ; no             ;
-; sensorLeftRaw   ; 92    ; 2        ; 3            ; 5            ; 0           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; User                 ; no             ;
-; sensorMiddleRaw ; 96    ; 2        ; 3            ; 5            ; 2           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; User                 ; no             ;
-; sensorRightRaw  ; 98    ; 2        ; 2            ; 5            ; 0           ; 1                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; User                 ; no             ;
+; clk             ; 12    ; 1        ; 1            ; 3            ; 3           ; 71                    ; 0                  ; yes    ; no              ; no       ; Off          ; 3.3-V LVTTL  ; User                 ; no             ;
+; sensorLeftRaw   ; 92    ; 2        ; 3            ; 5            ; 0           ; 2                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; User                 ; no             ;
+; sensorMiddleRaw ; 96    ; 2        ; 3            ; 5            ; 2           ; 2                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; User                 ; no             ;
+; sensorRightRaw  ; 98    ; 2        ; 2            ; 5            ; 0           ; 2                     ; 0                  ; no     ; no              ; no       ; Off          ; 3.3-V LVTTL  ; User                 ; no             ;
 +-----------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+-----------------+----------+--------------+--------------+----------------------+----------------+
 
 
@@ -355,13 +355,13 @@ Note: User assignments will override these defaults. The user specified values a
 +-----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------------------+-------------------+--------------+
 ; Compilation Hierarchy Node  ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name              ; Entity Name       ; Library Name ;
 +-----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------------------+-------------------+--------------+
-; |Top                        ; 23 (0)      ; 17           ; 0          ; 8    ; 0            ; 6 (0)        ; 3 (0)             ; 14 (0)           ; 7 (0)           ; 0 (0)      ; |Top                             ; Top               ; work         ;
-;    |LightSensorFilter:lsf1| ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 1 (1)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Top|LightSensorFilter:lsf1      ; LightSensorFilter ; work         ;
-;    |LightSensorFilter:lsf2| ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 1 (1)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Top|LightSensorFilter:lsf2      ; LightSensorFilter ; work         ;
-;    |LightSensorFilter:lsf3| ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 1 (1)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Top|LightSensorFilter:lsf3      ; LightSensorFilter ; work         ;
-;    |LineFollow:lf1|         ; 20 (4)      ; 14           ; 0          ; 0    ; 0            ; 6 (0)        ; 0 (0)             ; 14 (4)           ; 7 (0)           ; 0 (0)      ; |Top|LineFollow:lf1              ; LineFollow        ; work         ;
-;       |PWM:pwmleft|         ; 10 (10)     ; 9            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 9 (9)            ; 7 (7)           ; 0 (0)      ; |Top|LineFollow:lf1|PWM:pwmleft  ; PWM               ; work         ;
-;       |PWM:pwmright|        ; 6 (6)       ; 1            ; 0          ; 0    ; 0            ; 5 (5)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |Top|LineFollow:lf1|PWM:pwmright ; PWM               ; work         ;
+; |Top                        ; 89 (0)      ; 71           ; 0          ; 8    ; 0            ; 18 (0)       ; 0 (0)             ; 71 (0)           ; 58 (0)          ; 3 (0)      ; |Top                             ; Top               ; work         ;
+;    |LightSensorFilter:lsf1| ; 24 (24)     ; 19           ; 0          ; 0    ; 0            ; 5 (5)        ; 0 (0)             ; 19 (19)          ; 17 (17)         ; 1 (1)      ; |Top|LightSensorFilter:lsf1      ; LightSensorFilter ; work         ;
+;    |LightSensorFilter:lsf2| ; 24 (24)     ; 19           ; 0          ; 0    ; 0            ; 5 (5)        ; 0 (0)             ; 19 (19)          ; 17 (17)         ; 1 (1)      ; |Top|LightSensorFilter:lsf2      ; LightSensorFilter ; work         ;
+;    |LightSensorFilter:lsf3| ; 24 (24)     ; 19           ; 0          ; 0    ; 0            ; 5 (5)        ; 0 (0)             ; 19 (19)          ; 17 (17)         ; 1 (1)      ; |Top|LightSensorFilter:lsf3      ; LightSensorFilter ; work         ;
+;    |LineFollow:lf1|         ; 17 (4)      ; 14           ; 0          ; 0    ; 0            ; 3 (0)        ; 0 (0)             ; 14 (4)           ; 7 (0)           ; 0 (0)      ; |Top|LineFollow:lf1              ; LineFollow        ; work         ;
+;       |PWM:pwmleft|         ; 9 (9)       ; 9            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 9 (9)            ; 7 (7)           ; 0 (0)      ; |Top|LineFollow:lf1|PWM:pwmleft  ; PWM               ; work         ;
+;       |PWM:pwmright|        ; 4 (4)       ; 1            ; 0          ; 0    ; 0            ; 3 (3)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |Top|LineFollow:lf1|PWM:pwmright ; PWM               ; work         ;
 +-----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------------------+-------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -376,20 +376,23 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; PWM_OutL        ; Output   ; --            ;
 ; dirL            ; Output   ; --            ;
 ; clk             ; Input    ; (0)           ;
-; sensorLeftRaw   ; Input    ; (0)           ;
 ; sensorRightRaw  ; Input    ; (0)           ;
+; sensorLeftRaw   ; Input    ; (0)           ;
 ; sensorMiddleRaw ; Input    ; (0)           ;
 +-----------------+----------+---------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                                                ;
-+--------------------------------------+-------------+---------+--------------+--------+----------------------+------------------+
-; Name                                 ; Location    ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ;
-+--------------------------------------+-------------+---------+--------------+--------+----------------------+------------------+
-; LineFollow:lf1|PWM:pwmright|Equal0~2 ; LC_X6_Y3_N6 ; 2       ; Clock enable ; no     ; --                   ; --               ;
-; clk                                  ; PIN_12      ; 17      ; Clock        ; yes    ; Global Clock         ; GCLK0            ;
-+--------------------------------------+-------------+---------+--------------+--------+----------------------+------------------+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                     ;
++-------------------------------------------+-------------+---------+--------------+--------+----------------------+------------------+
+; Name                                      ; Location    ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ;
++-------------------------------------------+-------------+---------+--------------+--------+----------------------+------------------+
+; LightSensorFilter:lsf1|repeatCount[16]~32 ; LC_X7_Y3_N7 ; 17      ; Sync. clear  ; no     ; --                   ; --               ;
+; LightSensorFilter:lsf2|repeatCount[16]~32 ; LC_X2_Y2_N8 ; 17      ; Sync. clear  ; no     ; --                   ; --               ;
+; LightSensorFilter:lsf3|repeatCount[16]~32 ; LC_X5_Y4_N6 ; 17      ; Sync. clear  ; no     ; --                   ; --               ;
+; LineFollow:lf1|PWM:pwmright|Equal0~2      ; LC_X4_Y3_N8 ; 2       ; Clock enable ; no     ; --                   ; --               ;
+; clk                                       ; PIN_12      ; 71      ; Clock        ; yes    ; Global Clock         ; GCLK0            ;
++-------------------------------------------+-------------+---------+--------------+--------+----------------------+------------------+
 
 
 +---------------------------------------------------------------------+
@@ -397,102 +400,116 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------+----------+---------+----------------------+------------------+
 ; Name ; Location ; Fan-Out ; Global Resource Used ; Global Line Name ;
 +------+----------+---------+----------------------+------------------+
-; clk  ; PIN_12   ; 17      ; Global Clock         ; GCLK0            ;
+; clk  ; PIN_12   ; 71      ; Global Clock         ; GCLK0            ;
 +------+----------+---------+----------------------+------------------+
 
 
-+-------------------------------------------+
-; Routing Usage Summary                     ;
-+-----------------------+-------------------+
-; Routing Resource Type ; Usage             ;
-+-----------------------+-------------------+
-; C4s                   ; 8 / 784 ( 1 % )   ;
-; Direct links          ; 8 / 888 ( < 1 % ) ;
-; Global clocks         ; 1 / 4 ( 25 % )    ;
-; LAB clocks            ; 2 / 32 ( 6 % )    ;
-; LUT chains            ; 2 / 216 ( < 1 % ) ;
-; Local interconnects   ; 21 / 888 ( 2 % )  ;
-; R4s                   ; 9 / 704 ( 1 % )   ;
-+-----------------------+-------------------+
-
-
-+--------------------------------------------------------------------------+
-; LAB Logic Elements                                                       ;
-+--------------------------------------------+-----------------------------+
-; Number of Logic Elements  (Average = 7.67) ; Number of LABs  (Total = 3) ;
-+--------------------------------------------+-----------------------------+
-; 1                                          ; 0                           ;
-; 2                                          ; 0                           ;
-; 3                                          ; 0                           ;
-; 4                                          ; 1                           ;
-; 5                                          ; 0                           ;
-; 6                                          ; 0                           ;
-; 7                                          ; 0                           ;
-; 8                                          ; 0                           ;
-; 9                                          ; 1                           ;
-; 10                                         ; 1                           ;
-+--------------------------------------------+-----------------------------+
-
-
-+------------------------------------------------------------------+
-; LAB-wide Signals                                                 ;
-+------------------------------------+-----------------------------+
-; LAB-wide Signals  (Average = 1.00) ; Number of LABs  (Total = 3) ;
-+------------------------------------+-----------------------------+
-; 1 Clock                            ; 3                           ;
-+------------------------------------+-----------------------------+
++------------------------------------------+
+; Routing Usage Summary                    ;
++-----------------------+------------------+
+; Routing Resource Type ; Usage            ;
++-----------------------+------------------+
+; C4s                   ; 11 / 784 ( 1 % ) ;
+; Direct links          ; 46 / 888 ( 5 % ) ;
+; Global clocks         ; 1 / 4 ( 25 % )   ;
+; LAB clocks            ; 6 / 32 ( 19 % )  ;
+; LUT chains            ; 3 / 216 ( 1 % )  ;
+; Local interconnects   ; 70 / 888 ( 8 % ) ;
+; R4s                   ; 25 / 704 ( 4 % ) ;
++-----------------------+------------------+
 
 
 +---------------------------------------------------------------------------+
-; LAB Signals Sourced                                                       ;
-+---------------------------------------------+-----------------------------+
-; Number of Signals Sourced  (Average = 7.67) ; Number of LABs  (Total = 3) ;
-+---------------------------------------------+-----------------------------+
-; 0                                           ; 0                           ;
-; 1                                           ; 0                           ;
-; 2                                           ; 0                           ;
-; 3                                           ; 0                           ;
-; 4                                           ; 1                           ;
-; 5                                           ; 0                           ;
-; 6                                           ; 0                           ;
-; 7                                           ; 0                           ;
-; 8                                           ; 0                           ;
-; 9                                           ; 1                           ;
-; 10                                          ; 1                           ;
-+---------------------------------------------+-----------------------------+
+; LAB Logic Elements                                                        ;
++--------------------------------------------+------------------------------+
+; Number of Logic Elements  (Average = 8.09) ; Number of LABs  (Total = 11) ;
++--------------------------------------------+------------------------------+
+; 1                                          ; 1                            ;
+; 2                                          ; 0                            ;
+; 3                                          ; 0                            ;
+; 4                                          ; 2                            ;
+; 5                                          ; 0                            ;
+; 6                                          ; 0                            ;
+; 7                                          ; 0                            ;
+; 8                                          ; 0                            ;
+; 9                                          ; 0                            ;
+; 10                                         ; 8                            ;
++--------------------------------------------+------------------------------+
 
 
-+-------------------------------------------------------------------------------+
-; LAB Signals Sourced Out                                                       ;
-+-------------------------------------------------+-----------------------------+
-; Number of Signals Sourced Out  (Average = 4.00) ; Number of LABs  (Total = 3) ;
-+-------------------------------------------------+-----------------------------+
-; 0                                               ; 0                           ;
-; 1                                               ; 0                           ;
-; 2                                               ; 0                           ;
-; 3                                               ; 1                           ;
-; 4                                               ; 1                           ;
-; 5                                               ; 1                           ;
-+-------------------------------------------------+-----------------------------+
++-------------------------------------------------------------------+
+; LAB-wide Signals                                                  ;
++------------------------------------+------------------------------+
+; LAB-wide Signals  (Average = 1.73) ; Number of LABs  (Total = 11) ;
++------------------------------------+------------------------------+
+; 1 Clock                            ; 11                           ;
+; 1 Clock enable                     ; 2                            ;
+; 1 Sync. clear                      ; 6                            ;
++------------------------------------+------------------------------+
 
 
-+---------------------------------------------------------------------------+
-; LAB Distinct Inputs                                                       ;
-+---------------------------------------------+-----------------------------+
-; Number of Distinct Inputs  (Average = 5.33) ; Number of LABs  (Total = 3) ;
-+---------------------------------------------+-----------------------------+
-; 0                                           ; 0                           ;
-; 1                                           ; 0                           ;
-; 2                                           ; 1                           ;
-; 3                                           ; 0                           ;
-; 4                                           ; 1                           ;
-; 5                                           ; 0                           ;
-; 6                                           ; 0                           ;
-; 7                                           ; 0                           ;
-; 8                                           ; 0                           ;
-; 9                                           ; 0                           ;
-; 10                                          ; 1                           ;
-+---------------------------------------------+-----------------------------+
++----------------------------------------------------------------------------+
+; LAB Signals Sourced                                                        ;
++---------------------------------------------+------------------------------+
+; Number of Signals Sourced  (Average = 8.36) ; Number of LABs  (Total = 11) ;
++---------------------------------------------+------------------------------+
+; 0                                           ; 0                            ;
+; 1                                           ; 1                            ;
+; 2                                           ; 0                            ;
+; 3                                           ; 0                            ;
+; 4                                           ; 0                            ;
+; 5                                           ; 2                            ;
+; 6                                           ; 0                            ;
+; 7                                           ; 0                            ;
+; 8                                           ; 0                            ;
+; 9                                           ; 0                            ;
+; 10                                          ; 7                            ;
+; 11                                          ; 1                            ;
++---------------------------------------------+------------------------------+
+
+
++--------------------------------------------------------------------------------+
+; LAB Signals Sourced Out                                                        ;
++-------------------------------------------------+------------------------------+
+; Number of Signals Sourced Out  (Average = 4.36) ; Number of LABs  (Total = 11) ;
++-------------------------------------------------+------------------------------+
+; 0                                               ; 0                            ;
+; 1                                               ; 1                            ;
+; 2                                               ; 2                            ;
+; 3                                               ; 1                            ;
+; 4                                               ; 1                            ;
+; 5                                               ; 3                            ;
+; 6                                               ; 2                            ;
+; 7                                               ; 0                            ;
+; 8                                               ; 0                            ;
+; 9                                               ; 1                            ;
++-------------------------------------------------+------------------------------+
+
+
++----------------------------------------------------------------------------+
+; LAB Distinct Inputs                                                        ;
++---------------------------------------------+------------------------------+
+; Number of Distinct Inputs  (Average = 6.27) ; Number of LABs  (Total = 11) ;
++---------------------------------------------+------------------------------+
+; 0                                           ; 0                            ;
+; 1                                           ; 1                            ;
+; 2                                           ; 1                            ;
+; 3                                           ; 2                            ;
+; 4                                           ; 0                            ;
+; 5                                           ; 0                            ;
+; 6                                           ; 3                            ;
+; 7                                           ; 1                            ;
+; 8                                           ; 0                            ;
+; 9                                           ; 2                            ;
+; 10                                          ; 0                            ;
+; 11                                          ; 0                            ;
+; 12                                          ; 0                            ;
+; 13                                          ; 0                            ;
+; 14                                          ; 0                            ;
+; 15                                          ; 0                            ;
+; 16                                          ; 0                            ;
+; 17                                          ; 1                            ;
++---------------------------------------------+------------------------------+
 
 
 +-------------------------------------------------------------------------+
@@ -540,7 +557,7 @@ Info (176234): Starting register packing
 Info (186468): Started processing fast register assignments
 Info (186469): Finished processing fast register assignments
 Info (176235): Finished register packing
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:01
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:00
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:00
@@ -548,20 +565,20 @@ Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
 Info (170192): Fitter placement operations ending: elapsed time is 00:00:00
 Info (170193): Fitter routing operations beginning
-Info (170195): Router estimated average interconnect usage is 1% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 1% of the available device resources in the region that extends from location X0_Y0 to location X8_Y5
+Info (170195): Router estimated average interconnect usage is 2% of the available device resources
+    Info (170196): Router estimated peak interconnect usage is 2% of the available device resources in the region that extends from location X0_Y0 to location X8_Y5
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:00
-Info (11888): Total time spent on timing analysis during the Fitter is 0.08 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.10 seconds.
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:00
 Warning (169174): The Reserve All Unused Pins setting has not been specified, and will default to 'As output driving ground'.
 Info (144001): Generated suppressed messages file C:/Users/8stev/Desktop/computer archiecture/LineFollowRobot/quartus/output_files/Top.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 1206 megabytes
-    Info: Processing ended: Sat Apr 22 20:21:07 2017
+    Info: Peak virtual memory: 1207 megabytes
+    Info: Processing ended: Sat Apr 22 21:03:30 2017
     Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
 
 
 +----------------------------+

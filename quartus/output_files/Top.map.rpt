@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Top
-Sat Apr 22 20:21:04 2017
+Sat Apr 22 21:03:28 2017
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -16,13 +16,14 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
   8. Registers Removed During Synthesis
   9. General Register Statistics
  10. Inverted Register Statistics
- 11. Parameter Settings for User Entity Instance: LightSensorFilter:lsf1
- 12. Parameter Settings for User Entity Instance: LightSensorFilter:lsf2
- 13. Parameter Settings for User Entity Instance: LightSensorFilter:lsf3
- 14. Parameter Settings for User Entity Instance: LineFollow:lf1
- 15. Parameter Settings for User Entity Instance: LineFollow:lf1|PWM:pwmleft
- 16. Parameter Settings for User Entity Instance: LineFollow:lf1|PWM:pwmright
- 17. Analysis & Synthesis Messages
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: LightSensorFilter:lsf1
+ 13. Parameter Settings for User Entity Instance: LightSensorFilter:lsf2
+ 14. Parameter Settings for User Entity Instance: LightSensorFilter:lsf3
+ 15. Parameter Settings for User Entity Instance: LineFollow:lf1
+ 16. Parameter Settings for User Entity Instance: LineFollow:lf1|PWM:pwmleft
+ 17. Parameter Settings for User Entity Instance: LineFollow:lf1|PWM:pwmright
+ 18. Analysis & Synthesis Messages
 
 
 
@@ -49,12 +50,12 @@ agreement for further details.
 +---------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                              ;
 +-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Sat Apr 22 20:21:04 2017       ;
+; Analysis & Synthesis Status ; Successful - Sat Apr 22 21:03:28 2017       ;
 ; Quartus Prime Version       ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name               ; Top                                         ;
 ; Top-level Entity Name       ; Top                                         ;
 ; Family                      ; MAX II                                      ;
-; Total logic elements        ; 23                                          ;
+; Total logic elements        ; 92                                          ;
 ; Total pins                  ; 8                                           ;
 ; Total virtual pins          ; 0                                           ;
 ; UFM blocks                  ; 0 / 1 ( 0 % )                               ;
@@ -165,33 +166,33 @@ agreement for further details.
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Total logic elements                        ; 23    ;
-;     -- Combinational with no register       ; 6     ;
+; Total logic elements                        ; 92    ;
+;     -- Combinational with no register       ; 21    ;
 ;     -- Register only                        ; 3     ;
-;     -- Combinational with a register        ; 14    ;
+;     -- Combinational with a register        ; 68    ;
 ;                                             ;       ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 5     ;
-;     -- 3 input functions                    ; 4     ;
-;     -- 2 input functions                    ; 10    ;
-;     -- 1 input functions                    ; 1     ;
+;     -- 4 input functions                    ; 22    ;
+;     -- 3 input functions                    ; 7     ;
+;     -- 2 input functions                    ; 56    ;
+;     -- 1 input functions                    ; 4     ;
 ;     -- 0 input functions                    ; 0     ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 17    ;
-;     -- arithmetic mode                      ; 6     ;
+;     -- normal mode                          ; 38    ;
+;     -- arithmetic mode                      ; 54    ;
 ;     -- qfbk mode                            ; 0     ;
 ;     -- register cascade mode                ; 0     ;
-;     -- synchronous clear/load mode          ; 0     ;
+;     -- synchronous clear/load mode          ; 51    ;
 ;     -- asynchronous clear/load mode         ; 0     ;
 ;                                             ;       ;
-; Total registers                             ; 17    ;
-; Total logic cells in carry chains           ; 7     ;
+; Total registers                             ; 71    ;
+; Total logic cells in carry chains           ; 58    ;
 ; I/O pins                                    ; 8     ;
 ; Maximum fan-out node                        ; clk   ;
-; Maximum fan-out                             ; 17    ;
-; Total fan-out                               ; 77    ;
-; Average fan-out                             ; 2.48  ;
+; Maximum fan-out                             ; 71    ;
+; Total fan-out                               ; 354   ;
+; Average fan-out                             ; 3.54  ;
 +---------------------------------------------+-------+
 
 
@@ -200,13 +201,13 @@ agreement for further details.
 +-----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------------------+-------------------+--------------+
 ; Compilation Hierarchy Node  ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name              ; Entity Name       ; Library Name ;
 +-----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------------------+-------------------+--------------+
-; |Top                        ; 23 (0)      ; 17           ; 0          ; 8    ; 0            ; 6 (0)        ; 3 (0)             ; 14 (0)           ; 7 (0)           ; 0 (0)      ; |Top                             ; Top               ; work         ;
-;    |LightSensorFilter:lsf1| ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 1 (1)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Top|LightSensorFilter:lsf1      ; LightSensorFilter ; work         ;
-;    |LightSensorFilter:lsf2| ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 1 (1)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Top|LightSensorFilter:lsf2      ; LightSensorFilter ; work         ;
-;    |LightSensorFilter:lsf3| ; 1 (1)       ; 1            ; 0          ; 0    ; 0            ; 0 (0)        ; 1 (1)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |Top|LightSensorFilter:lsf3      ; LightSensorFilter ; work         ;
-;    |LineFollow:lf1|         ; 20 (4)      ; 14           ; 0          ; 0    ; 0            ; 6 (0)        ; 0 (0)             ; 14 (4)           ; 7 (0)           ; 0 (0)      ; |Top|LineFollow:lf1              ; LineFollow        ; work         ;
-;       |PWM:pwmleft|         ; 10 (10)     ; 9            ; 0          ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 9 (9)            ; 7 (7)           ; 0 (0)      ; |Top|LineFollow:lf1|PWM:pwmleft  ; PWM               ; work         ;
-;       |PWM:pwmright|        ; 6 (6)       ; 1            ; 0          ; 0    ; 0            ; 5 (5)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |Top|LineFollow:lf1|PWM:pwmright ; PWM               ; work         ;
+; |Top                        ; 92 (0)      ; 71           ; 0          ; 8    ; 0            ; 21 (0)       ; 3 (0)             ; 68 (0)           ; 58 (0)          ; 0 (0)      ; |Top                             ; Top               ; work         ;
+;    |LightSensorFilter:lsf1| ; 25 (25)     ; 19           ; 0          ; 0    ; 0            ; 6 (6)        ; 1 (1)             ; 18 (18)          ; 17 (17)         ; 0 (0)      ; |Top|LightSensorFilter:lsf1      ; LightSensorFilter ; work         ;
+;    |LightSensorFilter:lsf2| ; 25 (25)     ; 19           ; 0          ; 0    ; 0            ; 6 (6)        ; 1 (1)             ; 18 (18)          ; 17 (17)         ; 0 (0)      ; |Top|LightSensorFilter:lsf2      ; LightSensorFilter ; work         ;
+;    |LightSensorFilter:lsf3| ; 25 (25)     ; 19           ; 0          ; 0    ; 0            ; 6 (6)        ; 1 (1)             ; 18 (18)          ; 17 (17)         ; 0 (0)      ; |Top|LightSensorFilter:lsf3      ; LightSensorFilter ; work         ;
+;    |LineFollow:lf1|         ; 17 (4)      ; 14           ; 0          ; 0    ; 0            ; 3 (0)        ; 0 (0)             ; 14 (4)           ; 7 (0)           ; 0 (0)      ; |Top|LineFollow:lf1              ; LineFollow        ; work         ;
+;       |PWM:pwmleft|         ; 9 (9)       ; 9            ; 0          ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 9 (9)            ; 7 (7)           ; 0 (0)      ; |Top|LineFollow:lf1|PWM:pwmleft  ; PWM               ; work         ;
+;       |PWM:pwmright|        ; 4 (4)       ; 1            ; 0          ; 0    ; 0            ; 3 (3)        ; 0 (0)             ; 1 (1)            ; 0 (0)           ; 0 (0)      ; |Top|LineFollow:lf1|PWM:pwmright ; PWM               ; work         ;
 +-----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+----------------------------------+-------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -216,12 +217,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------+---------------------------------------------------+
 ; Register name                          ; Reason for Removal                                ;
 +----------------------------------------+---------------------------------------------------+
+; LineFollow:lf1|leftMotorSpeed[0..5]    ; Stuck at GND due to stuck port data_in            ;
+; LineFollow:lf1|rightMotorSpeed[0..5]   ; Stuck at GND due to stuck port data_in            ;
 ; LineFollow:lf1|dirR                    ; Stuck at VCC due to stuck port data_in            ;
 ; LineFollow:lf1|dirL                    ; Stuck at VCC due to stuck port data_in            ;
-; LineFollow:lf1|rightMotorSpeed[4..6]   ; Merged with LineFollow:lf1|rightMotorSpeed[7]     ;
-; LineFollow:lf1|rightMotorSpeed[0..2]   ; Merged with LineFollow:lf1|rightMotorSpeed[3]     ;
-; LineFollow:lf1|leftMotorSpeed[4..6]    ; Merged with LineFollow:lf1|leftMotorSpeed[7]      ;
-; LineFollow:lf1|leftMotorSpeed[0..2]    ; Merged with LineFollow:lf1|leftMotorSpeed[3]      ;
 ; LineFollow:lf1|PWM:pwmright|counter[7] ; Merged with LineFollow:lf1|PWM:pwmleft|counter[7] ;
 ; LineFollow:lf1|PWM:pwmright|counter[6] ; Merged with LineFollow:lf1|PWM:pwmleft|counter[6] ;
 ; LineFollow:lf1|PWM:pwmright|counter[5] ; Merged with LineFollow:lf1|PWM:pwmleft|counter[5] ;
@@ -239,8 +238,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 17    ;
-; Number of registers using Synchronous Clear  ; 0     ;
+; Total registers                              ; 71    ;
+; Number of registers using Synchronous Clear  ; 51    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
@@ -258,6 +257,17 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; LineFollow:lf1|PWM:pwmleft|PWM_Out     ; 1       ;
 ; Total number of inverted registers = 2 ;         ;
 +----------------------------------------+---------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |Top|LightSensorFilter:lsf1|repeatCount[16] ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |Top|LightSensorFilter:lsf2|repeatCount[16] ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 17 LEs               ; 17 LEs                 ; Yes        ; |Top|LightSensorFilter:lsf3|repeatCount[16] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
 
 
 +---------------------------------------------------------------------+
@@ -295,8 +305,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+----------+---------------------------------+
 ; Parameter Name ; Value    ; Type                            ;
 +----------------+----------+---------------------------------+
-; MAX            ; 11111111 ; Unsigned Binary                 ;
-; HALF           ; 00001111 ; Unsigned Binary                 ;
+; MAX            ; 10000000 ; Unsigned Binary                 ;
+; HALF           ; 01000000 ; Unsigned Binary                 ;
 ; OFF            ; 00000000 ; Unsigned Binary                 ;
 +----------------+----------+---------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
@@ -334,7 +344,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Sat Apr 22 20:20:52 2017
+    Info: Processing started: Sat Apr 22 21:03:17 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Top -c Top
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -348,22 +358,21 @@ Info (12021): Found 1 design units, including 1 entities, in source file /users/
     Info (12023): Found entity 1: Top File: C:/Users/8stev/Desktop/computer archiecture/LineFollowRobot/Top.v Line: 13
 Info (12127): Elaborating entity "Top" for the top level hierarchy
 Info (12128): Elaborating entity "LightSensorFilter" for hierarchy "LightSensorFilter:lsf1" File: C:/Users/8stev/Desktop/computer archiecture/LineFollowRobot/Top.v Line: 19
-Warning (10036): Verilog HDL or VHDL warning at LightSensorFilter.v(11): object "repeatCount" assigned a value but never read File: C:/Users/8stev/Desktop/computer archiecture/LineFollowRobot/LightSensorFilter.v Line: 11
-Warning (10036): Verilog HDL or VHDL warning at LightSensorFilter.v(12): object "latestPolarity" assigned a value but never read File: C:/Users/8stev/Desktop/computer archiecture/LineFollowRobot/LightSensorFilter.v Line: 12
+Warning (10230): Verilog HDL assignment warning at LightSensorFilter.v(21): truncated value with size 32 to match size of target (17) File: C:/Users/8stev/Desktop/computer archiecture/LineFollowRobot/LightSensorFilter.v Line: 21
 Info (12128): Elaborating entity "LineFollow" for hierarchy "LineFollow:lf1" File: C:/Users/8stev/Desktop/computer archiecture/LineFollowRobot/Top.v Line: 26
 Info (12128): Elaborating entity "PWM" for hierarchy "LineFollow:lf1|PWM:pwmleft" File: C:/Users/8stev/Desktop/computer archiecture/LineFollowRobot/LineFollow.v Line: 14
 Warning (10230): Verilog HDL assignment warning at PWM.v(23): truncated value with size 32 to match size of target (8) File: C:/Users/8stev/Desktop/computer archiecture/LineFollowRobot/PWM.v Line: 23
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "dirR" is stuck at VCC File: C:/Users/8stev/Desktop/computer archiecture/LineFollowRobot/Top.v Line: 16
     Warning (13410): Pin "dirL" is stuck at VCC File: C:/Users/8stev/Desktop/computer archiecture/LineFollowRobot/Top.v Line: 16
-Info (21057): Implemented 31 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 100 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 4 input pins
     Info (21059): Implemented 4 output pins
-    Info (21061): Implemented 23 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 7 warnings
-    Info: Peak virtual memory: 591 megabytes
-    Info: Processing ended: Sat Apr 22 20:21:04 2017
-    Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:31
+    Info (21061): Implemented 92 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 6 warnings
+    Info: Peak virtual memory: 592 megabytes
+    Info: Processing ended: Sat Apr 22 21:03:28 2017
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:28
 
 

@@ -1,5 +1,5 @@
 Flow report for Top
-Sat Apr 22 20:21:11 2017
+Sat Apr 22 21:03:33 2017
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -41,14 +41,14 @@ agreement for further details.
 +---------------------------------------------------------------------+
 ; Flow Summary                                                        ;
 +-----------------------+---------------------------------------------+
-; Flow Status           ; Successful - Sat Apr 22 20:21:09 2017       ;
+; Flow Status           ; Successful - Sat Apr 22 21:03:31 2017       ;
 ; Quartus Prime Version ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name         ; Top                                         ;
 ; Top-level Entity Name ; Top                                         ;
 ; Family                ; MAX II                                      ;
 ; Device                ; EPM240T100C5                                ;
 ; Timing Models         ; Final                                       ;
-; Total logic elements  ; 23 / 240 ( 10 % )                           ;
+; Total logic elements  ; 89 / 240 ( 37 % )                           ;
 ; Total pins            ; 8 / 80 ( 10 % )                             ;
 ; Total virtual pins    ; 0                                           ;
 ; UFM blocks            ; 0 / 1 ( 0 % )                               ;
@@ -60,7 +60,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/22/2017 20:20:53 ;
+; Start date & time ; 04/22/2017 21:03:17 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Top                 ;
 +-------------------+---------------------+
@@ -71,7 +71,7 @@ agreement for further details.
 +---------------------------------------+--------------------------------+---------------+-------------+------------+
 ; Assignment Name                       ; Value                          ; Default Value ; Entity Name ; Section Id ;
 +---------------------------------------+--------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID                 ; 70975883800848.149291045312176 ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID                 ; 70975883800848.149291299704100 ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP                ; 85                             ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP                ; 0                              ; --            ; --          ; --         ;
 ; PARTITION_COLOR                       ; 16764057                       ; --            ; --          ; --         ;
@@ -87,11 +87,11 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:12     ; 1.0                     ; 591 MB              ; 00:00:31                           ;
-; Fitter                    ; 00:00:01     ; 1.0                     ; 1206 MB             ; 00:00:02                           ;
-; Assembler                 ; 00:00:01     ; 1.0                     ; 538 MB              ; 00:00:01                           ;
-; TimeQuest Timing Analyzer ; 00:00:01     ; 1.0                     ; 556 MB              ; 00:00:01                           ;
-; Total                     ; 00:00:15     ; --                      ; --                  ; 00:00:35                           ;
+; Analysis & Synthesis      ; 00:00:11     ; 1.0                     ; 592 MB              ; 00:00:28                           ;
+; Fitter                    ; 00:00:01     ; 1.0                     ; 1207 MB             ; 00:00:01                           ;
+; Assembler                 ; 00:00:00     ; 1.0                     ; 538 MB              ; 00:00:00                           ;
+; TimeQuest Timing Analyzer ; 00:00:01     ; 1.0                     ; 555 MB              ; 00:00:01                           ;
+; Total                     ; 00:00:13     ; --                      ; --                  ; 00:00:30                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
